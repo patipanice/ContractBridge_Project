@@ -70,6 +70,10 @@ label {
   margin-left: -50px;
   font-size: 40px;
 }
+.win-round {
+  position: absolute;
+  color: rgb(255, 8, 8);
+}
 
 .direction {
   position: absolute;
