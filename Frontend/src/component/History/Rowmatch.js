@@ -6,12 +6,9 @@ import Status from "./Status";
 
 import "./Rowmatch.css";
 
-
-
 import ShowMatch from "./ShowMatch";
 
 export default function Rowmatch(props) {
-<<<<<<< HEAD
   const { status } = props;
   const [showMatch, setShowMatch] = useState(null);
   function onClickTR(statusMatch) {
@@ -45,6 +42,4 @@ export default function Rowmatch(props) {
       {showNewmatch}
     </tr>
   );
-
 }
-
