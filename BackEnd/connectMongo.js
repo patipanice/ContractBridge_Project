@@ -27,7 +27,7 @@ const getCard = () =>
 const updateStatus = async (query, newquery) =>
  await connectMongo.then((db) => {
     let dbo = db.db("ContractBridgeDB");
-    return dbo.collection(STATUS).updateOne(query, newquery);
+    return dbo.collection(STATUS).update(query, newquery);
   });
 
 const createStatus = (query) => 

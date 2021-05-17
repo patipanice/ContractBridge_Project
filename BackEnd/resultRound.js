@@ -7,7 +7,6 @@ const resultRound = (arrData, trump) => {
     ".................... Resulting round state ...................."
   );
   let firstChar = arrData[0].charAt(0);
-  console.log(firstChar);
   let maxValue = 0;
   let winRound = "null";
   let indexWin = 0;
@@ -17,7 +16,6 @@ const resultRound = (arrData, trump) => {
     firstChar == arrData[2].charAt(0) &&
     firstChar == arrData[3].charAt(0)
   ) {
-    console.log("IF ONE E");
     const arrNum = arrData.map((data) => parseInt(data.substring(1, 3)));
     maxValue = Math.max(...arrNum);
     winRound = arrData
@@ -28,7 +26,6 @@ const resultRound = (arrData, trump) => {
     return [winRound, indexWin];
   } else {
     //กรณีไม่ใช่หน้าเดียวกัน ให้คิดจากทรัมป์
-    console.log("IF ONE F");
     return ([winRound, indexWin] = findMax(arrData, trump)); //destructure return 2 value form function
   }
 };
@@ -43,7 +40,6 @@ const findMax = (arrData, trump) => {
     winRound = _find.toString();
     indexWin = arrData.indexOf(winRound);
   } else {
-    console.log("If length > 1");
     const arrNum = _find.map((data) => parseInt(data.substring(1, 3)));
     maxValue = Math.max(...arrNum);
     winRound = _find
