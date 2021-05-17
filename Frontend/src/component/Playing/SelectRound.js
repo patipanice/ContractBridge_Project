@@ -1,8 +1,7 @@
 import React from "react";
 import "./SelectRound.css";
 export default function SelectRound(props) {
-  const {cardsData} = props;
-  //console.log(cardsData)
+  const {cardsData,round} = props;
   const changeRound = (event) => {
     props.onChangeRound(event.target.value);
   };
