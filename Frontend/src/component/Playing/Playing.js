@@ -6,7 +6,7 @@ import SelectMatch from "./SelectMatch";
 import HandCards from "./HandCards";
 const cardJson = require ('../JSONFile/card.json');
 export default function Playing() {
-  const [cardsData, setCardsData] = useState(cardJson);
+  const [cardsData, setCardsData] = useState([]);
   const [status, setStatus] = useState(
     {
       _id: 1,
@@ -47,7 +47,7 @@ export default function Playing() {
   return (
     <>
       <HandCards record_card={cardsData.record_card}/>
-      <SelectRound onChangeRound={onChangeRound} statusRound ={status.game_round}/>
+      <SelectRound onChangeRound={onChangeRound} cardsData={cardsData} />
       <SelectMatch onChangeMatch={onChangeMatch} />
       <Fieldcard status={status} cardsData={cardsData} round={round} />
     </>
