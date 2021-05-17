@@ -32,7 +32,6 @@ const findMax = (arrData,trump) => {
         winRound = _find.toString();
         indexWin = arrData.indexOf(winRound);
     } else {
-       ฝฝ console.log("If length > 1"); 
         const arrNum = _find.map(data => parseInt(data.substring(1, 3)));
         maxValue = Math.max(...arrNum);
         winRound = _find.filter(arr => arr.substring(1, 3) == maxValue).toString();
