@@ -8,14 +8,16 @@ import "./Fieldcards.css";
 const cardJson = require("../JSONFile/card.json");
 
 export default function Playing() {
-  const [cardsData, setCardsData] = useState(cardJson);
-  const [status, setStatus] = useState({
-    _id: 1,
-    game_match: 1,
-    trump: "None",
-    game_round: 1,
-    first_direction: "South",
-  });
+  const [cardsData, setCardsData] = useState([]);
+  const [status, setStatus] = useState(
+    {
+      _id: 1,
+      game_match: 1,
+      trump: "None",
+      game_round: 1,
+      first_direction: "South",
+    }
+  );
   const [round, setRound] = useState(0);
   const [match, setMatch] = useState(0);
 

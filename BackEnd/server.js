@@ -161,7 +161,7 @@ app.post("/poststatus", (req, res) => {
   let first_direction = req.body.first_direction;
   let mySQL = { _id: gameStatus.game_match };
   let newSQL = { $set: { trump: trump, first_direction: first_direction } };
-  updateStatus(mySQL, newSQL).then(console.log("Update status complete")).catch(err=>console.log(err));
+  updateStatus(mySQL, newSQL).then(console.log("Update status complete")).then(getStatusHandler()).catch(err=>console.log(err));
 });
 //get card api
 app.get("/card", (req, res) => {
