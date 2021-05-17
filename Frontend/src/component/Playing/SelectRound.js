@@ -1,8 +1,8 @@
 import React from "react";
 import "./SelectRound.css";
 export default function SelectRound(props) {
-  const {statusRound} = props;
-  console.log(statusRound)
+  const { statusRound, round } = props;
+  console.log(round);
   const changeRound = (event) => {
     props.onChangeRound(event.target.value);
   };
@@ -17,7 +17,16 @@ export default function SelectRound(props) {
           onChange={changeRound}
           className="option-rounds"
         >
-          <option value="1">Init</option>
+          {round
+            ? round.map((val, index) => {
+                return (
+                  <option key={index} value={index}>
+                    {index}
+                  </option>
+                );
+              })
+            : ""}
+          {/* <option value="0">Init</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -30,7 +39,7 @@ export default function SelectRound(props) {
           <option value="10">10</option>
           <option value="11">11</option>
           <option value="12">12</option>
-          <option value="13">13</option>
+          <option value="13">13</option> */}
         </select>
       </form>
     </div>
