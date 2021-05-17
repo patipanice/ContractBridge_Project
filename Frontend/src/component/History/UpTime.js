@@ -9,6 +9,8 @@ export default function update(prop) {
   if (time !== "Invalid Date") {
     let Time = today.substr(11);
     return Time;
+  } else {
+    Time = "GG";
   }
 
   return (

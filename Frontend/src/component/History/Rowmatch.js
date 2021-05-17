@@ -3,6 +3,7 @@ import UpTime from "./UpTime";
 import UpDate from "./UpDate";
 import "./Rowmatch.css";
 import ShowMatch from "./ShowMatch";
+import Table from "./Table";
 
 export default function Rowmatch(props) {
   const { status } = props;
@@ -17,12 +18,17 @@ export default function Rowmatch(props) {
     console.log(showMatch);
     showNewmatch = <ShowMatch showMatch={showMatch} />;
   }
+
+  // const matchElement = status.map((upDateStatus, index) => {
+  //   return <Table key={index} getData={upDateStatus} />;
+  // });
+
   return (
     <div>
       {showNewmatch}
       <table className="table-history">
         <tr>
-          <th>No.</th>
+          <th>Match </th>
           <th>Date</th>
           <th>Time Start</th>
           <th>Time End</th>
@@ -33,7 +39,7 @@ export default function Rowmatch(props) {
             onClickTR(status[0] && status[0]);
           }}
         >
-          <td>Match {status[0] ? status[0]._id : ""}</td>
+          <td>{status[0] ? "Match No." + status[0]._id : ""}</td>
           <td>
             <UpDate inputDate={status[0] ? status[0].start_date_time : ""} />
           </td>
@@ -50,7 +56,7 @@ export default function Rowmatch(props) {
             onClickTR(status[1] && status[1]);
           }}
         >
-          <td>Match {status[1] ? status[1]._id : ""}</td>
+          <td>{status[1] ? "Match No." + status[1]._id : ""}</td>
           <td>
             <UpDate inputDate={status[1] ? status[1].start_date_time : " "} />
           </td>
@@ -67,7 +73,7 @@ export default function Rowmatch(props) {
             onClickTR(status[2] && status[2]);
           }}
         >
-          <td>Match {status[2] ? status[2]._id : ""}</td>
+          <td>{status[2] ? "Match No." + status[0]._id : ""}</td>
           <td>
             <UpDate inputDate={status[2] ? status[2].start_date_time : ""} />
           </td>
@@ -84,7 +90,7 @@ export default function Rowmatch(props) {
             onClickTR(status[0] && status[0]);
           }}
         >
-          <td>Match {status[0] ? status[0]._id : ""}</td>
+          <td>{status[3] ? "Match No." + status[0]._id : ""}</td>
           <td>
             <UpDate inputDate={status[0] ? status[0].start_date_time : ""} />
           </td>
