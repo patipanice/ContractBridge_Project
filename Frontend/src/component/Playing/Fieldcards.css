@@ -4,7 +4,10 @@
   margin-left: 15px;
   margin-top: 15px;
 }
-
+.content-fieldcards {
+  display: block;
+  background-color: black;
+}
 .card {
   width: 90px;
   position: absolute;

@@ -17,7 +17,7 @@ export default function Fieldcard(props) {
   }
 
   return (
-    <>
+    <div>
       <p className="direction south-direction">South</p>
       <p className="direction west-direction">West</p>
       <p className="direction north-direction">North</p>
@@ -104,6 +104,6 @@ export default function Fieldcard(props) {
           / {status["trump"].charAt(1)}
         </h1>
       )}
-    </>
+    </div>
   );
 }

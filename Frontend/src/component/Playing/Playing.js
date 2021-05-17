@@ -4,7 +4,9 @@ import Fieldcard from "./Fieldcards";
 import SelectRound from "./SelectRound";
 import SelectMatch from "./SelectMatch";
 import HandCards from "./HandCards";
+import "./Fieldcards.css";
 const cardJson = require("../JSONFile/card.json");
+
 export default function Playing() {
   const [cardsData, setCardsData] = useState(cardJson);
   const [status, setStatus] = useState({
@@ -59,14 +61,17 @@ export default function Playing() {
 
   return (
     <>
-      <HandCards record_card={cardsData.record_card} />
-      <SelectRound
-        onChangeRound={onChangeRound}
-        statusRound={status.game_round}
-        round={cardsData.record_card}
-      />
-      {/* <SelectMatch onChangeMatch={onChangeMatch} /> */}
-      <Fieldcard status={status} cardsData={cardsData} round={round} />
+      <div className="content-fieldcards">
+        <HandCards record_card={cardsData.record_card} />
+        <SelectRound
+          onChangeRound={onChangeRound}
+          statusRound={status.game_round}
+          round={cardsData.record_card}
+        />
+        {/* <SelectMatch onChangeMatch={onChangeMatch} /> */}
+
+        <Fieldcard status={status} cardsData={cardsData} round={round} />
+      </div>
     </>
   );
 }
