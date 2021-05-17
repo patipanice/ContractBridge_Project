@@ -4,7 +4,7 @@ import Fieldcard from "./Fieldcards";
 import SelectRound from "./SelectRound";
 import SelectMatch from "./SelectMatch";
 import HandCards from "./HandCards";
-const cardJson = require ('../JSONFile/card.json');
+const cardJson = require("../JSONFile/card.json");
 export default function Playing() {
   const [cardsData, setCardsData] = useState([]);
   const [status, setStatus] = useState(
@@ -32,23 +32,42 @@ export default function Playing() {
         setStatus(res.data[match]); //when match change useEffect() will run again and again
       }
     });
+  }, [match]);
 
-  },[match]);
+  const getAllCard = async () => {
+    return await axios.get("http://localhost:5000/card/");
+  };
 
+  const getStatus = async () => {
+    return await axios.get("http://localhost:5000/status/");
+  };
 
-  const getAllCard = async () => { return await axios.get("http://localhost:5000/card/");};
+  const onChangeRound = (round) => {
+    setRound(round);
+  };
+  const onChangeMatch = (round) => {
+    setMatch(round);
+  };
 
-  const getStatus = async () => { return await axios.get("http://localhost:5000/status/");};
-
-
-  const onChangeRound = (round) => { setRound(round); };
-  const onChangeMatch = (round) => { setMatch(round); };
+  // const SelectRoundPlay = cardsData.map((cardsData, index) => {
+  //   return (
+  //     <SelectMatch
+  //       round={cardsData}
+  //       key={index}
+  //       onChangeMatch={onChangeMatch}
+  //     />
+  //   );
+  // });
 
   return (
     <>
-      <HandCards record_card={cardsData.record_card}/>
-      <SelectRound onChangeRound={onChangeRound} cardsData={cardsData} />
-      <SelectMatch onChangeMatch={onChangeMatch} />
+      <HandCards record_card={cardsData.record_card} />
+      <SelectRound
+        onChangeRound={onChangeRound}
+        statusRound={status.game_round}
+        round={cardsData.record_card}
+      />
+      {/* <SelectMatch onChangeMatch={onChangeMatch} /> */}
       <Fieldcard status={status} cardsData={cardsData} round={round} />
     </>
   );

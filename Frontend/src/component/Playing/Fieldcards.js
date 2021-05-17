@@ -28,7 +28,10 @@ export default function Fieldcard(props) {
       {
         <img
           src={
-            cardJson[ cardsData["record_card"]? cardsData["record_card"][round][0]: "Back"
+            cardJson[
+              cardsData["record_card"]
+                ? cardsData["record_card"][round][0]
+                : "Back"
             ]
           }
           className="card south-card"
@@ -36,8 +39,10 @@ export default function Fieldcard(props) {
         />
       }
       {
-        <img src={cardJson[
-          cardsData["record_card"]
+        <img
+          src={
+            cardJson[
+              cardsData["record_card"]
                 ? cardsData["record_card"][round][1]
                 : "Back"
             ]
