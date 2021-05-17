@@ -102,7 +102,7 @@ app.get("/write/:data", (req, res) => {
       console.log(`[Card_Data] :  ${arrData}`);
       //console.log(gameStatus.first_direction);
       arrData = editarrData(arrData, gameStatus.first_direction);
-      let [winRound, first_direciton] = resultRound(arrData);
+      let [winRound, first_direciton] = resultRound(arrData,gameStatus.trump);
       console.log(
         `WinRound : ${winRound}  First_Direction :  ${first_direciton}`
       );
