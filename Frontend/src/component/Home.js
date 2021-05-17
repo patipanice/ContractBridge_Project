@@ -5,7 +5,6 @@ export default function Home() {
 
     return (
         <div className="flex">
-            {/*<img src="./icon.png" alt="icon" className="home-icon" /> */}
             <div className="flex-img">
                 <img src="./images/IconH.png" alt="icon" className="img-icon" />
                 <img src="./images/IconS.png" alt="icon" className="img-icon" />

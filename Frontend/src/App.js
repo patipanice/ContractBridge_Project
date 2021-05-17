@@ -2,14 +2,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React from "react";
 import Home from "./component/Home";
 import Playing from "./component/Playing/Playing";
-import Recording from "./component/Recording/Recording";
 import AboutMe from "./component/AboutMe";
 import Navbar from "./component/Navbar";
 import History from "./component/History/History";
 
 function App() {
   return (
-    // Hello world
     <Router>
       <div>
         <Switch>
