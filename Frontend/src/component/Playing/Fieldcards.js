@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import WinAuctionTrump from "./trump/WinAuctionTrump";
 import "./Fieldcards.css";
+import ShowHandCard from "./ShowHandCards";
 const cardJson = require("../../cards.json");
 
 export default function Fieldcard(props) {
   const { status, cardsData, round } = props;
   //var winRound = cardsData['recording'][round][4].substr(4, 7); //GET WINROUND
   const [popupTrump, setPopupTrump] = useState(false);
+  const [countCard, setCountCard] = useState(null);
+  const [showCard, setShowCard] = useState(null);
   let trumpPopUp;
 
   const popUpTrumpOpenHandler = () => setPopupTrump(true);
@@ -15,13 +18,41 @@ export default function Fieldcard(props) {
   if (popupTrump) {
     trumpPopUp = <WinAuctionTrump onTrumpClose={popUpTrumpCloseHandler} />;
   }
+  function onChangeinput() {
+    setShowCard(cardsData["record_card"]);
+  }
+  const changeRound = (event) => {
+    setCountCard(event.target.value);
+    onChangeinput();
+  };
+
+  let showHand = null;
+  if (!!showCard) {
+    showHand = <ShowHandCard inputCardHand={showCard} count={countCard} />;
+  }
 
   return (
-    <>
-      <p className="direction south-direction">South</p>
-      <p className="direction west-direction">West</p>
-      <p className="direction north-direction">North</p>
-      <p className="direction east-direction">East</p>
+    <div>
+      <form>
+        <label>Select Round : </label>
+        <select
+          name="rounds"
+          id="rounds"
+          onChange={changeRound}
+          className="option-rounds"
+        >
+          <option value="None">None</option>
+          <option value="2">North</option>
+          <option value="3">East</option>
+          <option value="0">South</option>
+          <option value="1">West</option>
+        </select>
+      </form>
+      {showHand}
+      <p className="direction south-direction">South :</p>
+      <p className="direction west-direction">West : </p>
+      <p className="direction north-direction">North : </p>
+      <p className="direction east-direction">East : </p>
       <p className="direction win-direction">
         {/* {cardsData["record_card"][round][4]} */}
       </p>
@@ -104,6 +135,6 @@ export default function Fieldcard(props) {
           / {status["trump"].charAt(1)}
         </h1>
       )}
-    </>
+    </div>
   );
 }

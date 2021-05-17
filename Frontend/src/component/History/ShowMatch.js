@@ -7,6 +7,13 @@ import axios from "axios";
 
 export default function ShowMatch(prop) {
   const { showMatch } = prop;
+  const [status, setStatus] = useState({
+    _id: 1,
+    game_match: 1,
+    trump: "None",
+    game_round: 1,
+    first_direction: "South",
+  });
 
   const [cardsData, setCardsData] = useState([
     {
@@ -57,8 +64,12 @@ export default function ShowMatch(prop) {
       <div className="content-showmatch">
         <div className="content-showmatch-popup-bg">
           <div className="content-showmatch-popup-use"></div>
-          <SelectRound onChangeRound={onChangeRound} />
-          <SelectMatch onChangeMatch={onChangeMatch} />
+          <SelectRound
+            onChangeRound={onChangeRound}
+            statusRound={status.game_round}
+            round={cardsData.record_card}
+          />
+          {/* <SelectMatch onChangeMatch={onChangeMatch} /> */}
           <HistoryField
             status={showMatch}
             cardsData={cardsData}
