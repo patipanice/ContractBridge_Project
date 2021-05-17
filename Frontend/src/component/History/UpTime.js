@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function update(prop) {
+export default function UpTime(prop) {
   const { inputTime } = prop;
   let date = new Date(inputTime);
   let today = date.toLocaleString();

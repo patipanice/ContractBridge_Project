@@ -10,7 +10,6 @@ export default function SelectMatch(props) {
               <form >
                 <label>Select Match : </label>
                 <select name="match" id="match" onChange={changeMatch} className="option-matches">
-                    <option value="0">Begin</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
