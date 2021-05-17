@@ -17,5 +17,4 @@ export default function Rowmatch(props) {
  </tr>
   )
 
-
   }
