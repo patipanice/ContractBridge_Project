@@ -3,46 +3,13 @@ import axios from "axios";
 import Fieldcard from "./Fieldcards";
 import SelectRound from "./SelectRound";
 import SelectMatch from "./SelectMatch";
-
+import HandCards from "./HandCards";
+const cardJson = require ('../JSONFile/card.json');
 export default function Playing() {
-  const [cardsData, setCardsData] = useState([
-    {
-      _id: 1,
-      record_card: [
-        ["Back", "Back", "Back", "Back", "Back"],
-        ["Back", "Back", "Back", "Back", "Back"],
-        ["Back", "Back", "Back", "Back", "Back"],
-        ["Back", "Back", "Back", "Back", "Back"],
-        ["Back", "Back", "Back", "Back", "Back"],
-        ["Back", "Back", "Back", "Back", "Back"],
-        ["Back", "Back", "Back", "Back", "Back"],
-        ["Back", "Back", "Back", "Back", "Back"],
-        ["Back", "Back", "Back", "Back", "Back"],
-        ["Back", "Back", "Back", "Back", "Back"],
-        ["Back", "Back", "Back", "Back", "Back"],
-        ["Back", "Back", "Back", "Back", "Back"],
-        ["Back", "Back", "Back", "Back", "Back"],
-        ["Back", "Back", "Back", "Back", "Back"],
-      ],
-    },
-  ]);
+  const [cardsData, setCardsData] = useState(cardJson);
   const [status, setStatus] = useState(
     {
       _id: 1,
-      game_match: 1,
-      trump: "None",
-      game_round: 1,
-      first_direction: "South",
-    },
-    {
-      _id: 2,
-      game_match: 1,
-      trump: "None",
-      game_round: 1,
-      first_direction: "South",
-    },
-    {
-      _id: 3,
       game_match: 1,
       trump: "None",
       game_round: 1,
@@ -55,7 +22,7 @@ export default function Playing() {
   useEffect(() => {
     getAllCard().then((res) => {
       if (res.status == "200") {
-        console.log("[ Get status server : 200 OK ! ]");
+        console.log("[ Get card server : 200 OK ! ]");
         setCardsData(res.data[match]); //when match change useEffect() will run again and again
       }
     });
@@ -63,34 +30,24 @@ export default function Playing() {
       if (res.status == "200") {
         console.log("[ Get status server : 200 OK ! ]");
         setStatus(res.data[match]); //when match change useEffect() will run again and again
-        let date = new Date(res.data[0].end_date_time);
-        let today = date.toLocaleString();
-        let time = today.substr(11);
-        let day = today.substr(0, 9);
-        // console.log(day);
       }
     });
-  }, [match]);
 
-  const getAllCard = async () => {
-    const rawCard = await axios.get("http://localhost:5000/card/");
-    return rawCard;
-  };
-  const getStatus = async () => {
-    const rawStatus = await axios.get("http://localhost:5000/status");
-    return rawStatus;
-  };
+  },[match]);
 
-  function onChangeRound(round) {
-    setRound(round);
-  }
-  function onChangeMatch(round) {
-    setMatch(round);
-  }
+
+  const getAllCard = async () => { return await axios.get("http://localhost:5000/card/");};
+
+  const getStatus = async () => { return await axios.get("http://localhost:5000/status/");};
+
+
+  const onChangeRound = (round) => { setRound(round); };
+  const onChangeMatch = (round) => { setMatch(round); };
 
   return (
     <>
-      <SelectRound onChangeRound={onChangeRound} />
+      <HandCards record_card={cardsData.record_card}/>
+      <SelectRound onChangeRound={onChangeRound} statusRound ={status.game_round}/>
       <SelectMatch onChangeMatch={onChangeMatch} />
       <Fieldcard status={status} cardsData={cardsData} round={round} />
     </>

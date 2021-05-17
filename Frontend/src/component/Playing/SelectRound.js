@@ -1,6 +1,8 @@
 import React from "react";
 import "./SelectRound.css";
 export default function SelectRound(props) {
+  const {statusRound} = props;
+  console.log(statusRound)
   const changeRound = (event) => {
     props.onChangeRound(event.target.value);
   };
@@ -15,7 +17,7 @@ export default function SelectRound(props) {
           onChange={changeRound}
           className="option-rounds"
         >
-          <option value="0">Begin</option>
+          <option value="1">Init</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>

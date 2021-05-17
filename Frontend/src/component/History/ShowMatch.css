@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.753);
+  background-color: rgba(0, 0, 0, 0.24);
 }
 .content-showmatch-popup-bg {
   position: absolute;

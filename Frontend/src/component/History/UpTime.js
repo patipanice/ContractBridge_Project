@@ -1,11 +1,10 @@
 import React from "react";
 
-export default function update(prop) {
+export default function UpTime(prop) {
   const { inputTime } = prop;
   let date = new Date(inputTime);
   let today = date.toLocaleString();
   let time = today;
-  let Time;
   if (time !== "Invalid Date") {
     let Time = today.substr(11);
     return Time;
@@ -13,9 +12,5 @@ export default function update(prop) {
     Time = "GG";
   }
 
-  return (
-    <div>
-      <td>{Time}</td>
-    </div>
-  );
+  return ( <></>)
 }
