@@ -5,13 +5,11 @@ const e = require("express");
 const resultRound = (arrData,trump) => {
     console.log(".................... Resulting round state ....................");
     let firstChar = arrData[0].charAt(0);
-    console.log(firstChar);
     let maxValue = 0;
     let winRound = 'null';
     let indexWin = 0;
     //กรณีหน้าเดียวกันทั้งหมด parseInt => str>int , substring(from,to);
     if (firstChar == arrData[1].charAt(0) && firstChar == arrData[2].charAt(0) && firstChar == arrData[3].charAt(0)) {
-        console.log("IF ONE E")
         const arrNum = arrData.map(data => parseInt(data.substring(1, 3)));
         maxValue = Math.max(...arrNum);
         winRound = arrData.filter(arr => arr.substring(1, 3) == maxValue).toString();
@@ -19,7 +17,6 @@ const resultRound = (arrData,trump) => {
         indexWin = changeDirection(indexWin);
         return [winRound, indexWin];
     } else { //กรณีไม่ใช่หน้าเดียวกัน ให้คิดจากทรัมป์ 
-        console.log("IF ONE F")
         return [winRound, indexWin] = findMax(arrData,trump); //destructure return 2 value form function
     }
 }
@@ -35,7 +32,7 @@ const findMax = (arrData,trump) => {
         winRound = _find.toString();
         indexWin = arrData.indexOf(winRound);
     } else {
-        console.log("If length > 1"); 
+       ฝฝ console.log("If length > 1"); 
         const arrNum = _find.map(data => parseInt(data.substring(1, 3)));
         maxValue = Math.max(...arrNum);
         winRound = _find.filter(arr => arr.substring(1, 3) == maxValue).toString();
