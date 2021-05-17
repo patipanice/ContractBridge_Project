@@ -89,7 +89,6 @@ export default function Fieldcard(props) {
           className="winround-card"
         />
       }
-
       {trumpPopUp}
       {status["trump"] === "None" ? (
         <button className="btn-trump" onClick={popUpTrumpOpenHandler}>

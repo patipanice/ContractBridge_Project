@@ -26,7 +26,7 @@ export default function Rowmatch(props) {
   return (
     <div>
       {showNewmatch}
-      <table className="table-history">
+      {/* <table className="table-history">
         <tr>
           <th>Match </th>
           <th>Date</th>
@@ -102,7 +102,7 @@ export default function Rowmatch(props) {
           </td>
           <td></td>
         </tr>
-      </table>
+      </table> */}
     </div>
   );
 }
