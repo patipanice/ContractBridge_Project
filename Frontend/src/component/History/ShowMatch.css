@@ -1,0 +1,30 @@
+.content-showmatch {
+  text-align: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.753);
+}
+.content-showmatch-popup-bg {
+  position: absolute;
+  top: center;
+  bottom: center;
+  left: center;
+  right: center;
+}
+
+.content-showmatch-popup-use {
+  position: relative;
+  max-width: 1440px;
+  background-color: white;
+  width: 1440px;
+  height: 800px;
+  padding: 5px;
+  border-radius: 5px;
+}
