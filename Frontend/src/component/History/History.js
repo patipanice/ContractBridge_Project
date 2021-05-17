@@ -8,19 +8,26 @@ export default function History() {
   useEffect(() => {
     axios.get("http://localhost:5000/status").then((result) => {
       const { data } = result;
-      console.log(data);
+      //console.log(data);
       setStatus(data);
     });
   }, []);
 
+
   return (
-    <div>
-      <div className="main-center">
-        <div className="history-content">
-          <h2>History </h2>
-          <Rowmatch status={status} />
-        </div>
-      </div>
-    </div>
+          <table className="styled-table">
+             <thead>
+               <tr>
+              <th>Game Match</th>
+              <th>Date</th>
+              <th>Time Start</th>
+              <th>Time End</th>
+              <th>Status</th>
+              </tr>
+              </thead>
+              <tbody>
+            {status.map((match,key)=> <Rowmatch status={match} key={key}></Rowmatch>)}
+            </tbody>
+          </table>
   );
 }

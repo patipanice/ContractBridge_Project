@@ -5,15 +5,10 @@ export default function update(prop) {
   let date = new Date(inputTime);
   let today = date.toLocaleString();
   let time = today;
-  let Time;
   if (time !== "Invalid Date") {
     let Time = today.substr(11);
     return Time;
   }
 
-  return (
-    <div>
-      <td>{Time}</td>
-    </div>
-  );
+  return ( <></>)
 }
