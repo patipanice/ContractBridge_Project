@@ -1,6 +1,7 @@
 //********************************************* คำนวนไพ่ และ ชนะรอบ ***************************************//
 
 const resultRound = (arrData, trump) => {
+  //H02,A02,H04,S01
   console.log(
     ".................... Resulting round state ...................."
   );
@@ -8,6 +9,28 @@ const resultRound = (arrData, trump) => {
   let maxValue = 0;
   let winRound = "null";
   let indexWin = 0;
+  //กรณีเป็น NT
+  if (trump.charAt(0) === "N") {
+    let MaxTrump = arrData[0].charAt(0); //H
+    console.log(MaxTrump);
+    const arrNum0 = arrData.filter(
+      (data) => data.charAt(0).toString() == MaxTrump.toString()
+    );
+    if (arrNum0.length === 1) {
+      indexWin = changeDirection(0);
+      return [arrNum0.toString(), indexWin];
+    } else {
+      const arrNum = arrNum0.map((data) => parseInt(data.substring(1, 3)));
+      maxValue = Math.max(...arrNum);
+      winRound = arrNum0
+        .filter((arr) => arr.substring(1, 3) == maxValue)
+        .toString();
+      indexWin = arrData.indexOf(winRound);
+      indexWin = changeDirection(indexWin);
+      return [winRound, indexWin];
+    }
+  }
+
   //กรณีหน้าเดียวกันทั้งหมด parseInt => str>int , substring(from,to);
   if (
     firstChar == arrData[1].charAt(0) &&

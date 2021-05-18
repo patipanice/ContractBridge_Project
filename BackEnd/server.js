@@ -57,7 +57,7 @@ const getStatusHandler = () => {
             West: docs[0].win_point.West,
             North: docs[0].win_point.North,
             East: docs[0].win_point.East,
-          },
+          }, 
         };
         console.log(gameStatus);
         if (gameStatus.game_round === 13) {
