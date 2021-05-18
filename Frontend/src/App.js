@@ -7,14 +7,9 @@ import Navbar from "./component/Navbar";
 import History from "./component/History/History";
 import Dashboard from "./component/History/LoginPage/Dashboard";
 import LoginAdmin from "./component/History/LoginPage/LoginAdmin";
-import useToken from "./component/History/LoginPage/useToken";
 
 function App() {
-  const { token, setToken } = useToken();
 
-  // if (!token) {
-  //   return <LoginAdmin setToken={setToken} />;
-  // }
   return (
     <Router>
       <div>

@@ -5,16 +5,13 @@ import "./LoginAdmin.css";
 import PropTypes from "prop-types";
 
 async function loginUser(credentials) {
-  return fetch("http://localhost:8080/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(credentials),
-  }).then((data) => data.json());
+  return axios.post('http://localhost:5000/login',{
+    username: credentials.username,
+    password: credentials.password
+  }).then((res)=>res.data.token);
 }
 
-export default function Login({ setToken }) {
+export default function Login({ setToken}) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
 
@@ -24,7 +21,8 @@ export default function Login({ setToken }) {
       username,
       password,
     });
-    setToken(token);
+  console.log(`token : ${token}`);
+   setToken(token);
   };
 
   return (

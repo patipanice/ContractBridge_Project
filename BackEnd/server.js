@@ -230,7 +230,7 @@ app.post("/login", (req,res) => {
 function loginSession(username,password,res) {
   loginSessionHandler().then((response,err)=>{
     if(response.username === username && response.password === password){
-      res.json({'token': response.session});
+      res.send({'token': response.session});
     }else{
       res.send({'token': 'Failed'});
     }

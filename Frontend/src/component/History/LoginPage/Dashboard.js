@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import useToken from "./useToken";
 import LoginAdmin from "./LoginAdmin";
-import axios from "axios";
 import DelMatch from "./DelMatch";
 
 export default function Dashboard() {
@@ -19,10 +18,16 @@ export default function Dashboard() {
   if (!token) {
     return <LoginAdmin setToken={setToken} />;
   }
-
   return (
     <>
       {" "}
+      <button
+        onClick={() => {
+          localStorage.clear();
+        }}
+      >
+        x
+      </button>
       <h2>Admin</h2>
       <table className="styled-table">
         <thead>
