@@ -34,7 +34,7 @@ export default function Fieldcard(props) {
   return (
     <div>
       <form>
-        <label>Select Round : </label>
+        <label>Show Hand : </label>
         <select
           name="rounds"
           id="rounds"
@@ -49,10 +49,18 @@ export default function Fieldcard(props) {
         </select>
       </form>
       {showHand}
-      <p className="direction south-direction">South :</p>
-      <p className="direction west-direction">West : </p>
-      <p className="direction north-direction">North : </p>
-      <p className="direction east-direction">East : </p>
+      <p className="direction south-direction">
+        South : {status["win_point"] ? status["win_point"]["South"] : 0}
+      </p>
+      <p className="direction west-direction">
+        West : {status["win_point"] ? status["win_point"]["West"] : 0}
+      </p>
+      <p className="direction north-direction">
+        North : {status["win_point"] ? status["win_point"]["North"] : 0}
+      </p>
+      <p className="direction east-direction">
+        East : {status["win_point"] ? status["win_point"]["East"] : 0}
+      </p>
       <p className="direction win-direction">
         {/* {cardsData["record_card"][round][4]} */}
       </p>

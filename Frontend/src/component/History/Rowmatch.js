@@ -10,14 +10,22 @@ import ShowMatch from "./ShowMatch";
 
 export default function Rowmatch(props) {
   const { status } = props;
-  const [showMatch, setShowMatch] = useState(null);
+  const [showMatch, setShowMatch] = useState(false);
+
+  function onClickClose() {
+    setShowMatch(false);
+    console.log(showMatch);
+  }
+
   function onClickTR(statusMatch) {
     setShowMatch(statusMatch);
   }
+
   let showNewmatch = null;
   if (!!showMatch) {
-    console.log(showMatch);
-    showNewmatch = <ShowMatch showMatch={showMatch} />;
+    showNewmatch = (
+      <ShowMatch showMatch={showMatch} onClickClose={onClickClose} />
+    );
   }
 
   return (

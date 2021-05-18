@@ -6,7 +6,7 @@ import SelectMatch from "../Playing/SelectMatch";
 import axios from "axios";
 
 export default function ShowMatch(prop) {
-  const { showMatch } = prop;
+  const { showMatch, onClickClose } = prop;
   const [status, setStatus] = useState({
     _id: 1,
     game_match: 1,
@@ -62,7 +62,8 @@ export default function ShowMatch(prop) {
   return (
     <div>
       <div className="content-showmatch">
-        <div className="content-showmatch-popup-bg">
+        <div className="content-showmatch-popup-bg" onClick={onClickClose}>
+          {/* <button onClick={() => onClickClose(close)}>Close</button> */}
           <div className="content-showmatch-popup-use"></div>
           <SelectRound
             onChangeRound={onChangeRound}
