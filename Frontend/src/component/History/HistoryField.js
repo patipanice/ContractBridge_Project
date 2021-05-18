@@ -1,14 +1,53 @@
 import React, { useState } from "react";
 import "./HistoryField";
+import ShowHandCard from "../Playing/ShowHandCards";
 
 const cardJson = require("../../cards.json");
 
 export default function Fieldcard(props) {
   const { status, cardsData, round } = props;
-  //var winRound = cardsData['recording'][round][4].substr(4, 7); //GET WINROUND
+  const [showCard, setShowCard] = useState(false);
+  const [countCard, setCountCard] = useState(null);
+
+  function onChangeinput() {
+    setShowCard(cardsData["record_card"]);
+  }
+  const changeRound = (event) => {
+    setCountCard(event.target.value);
+    onChangeinput();
+  };
+  function onCloseCard() {
+    setShowCard(false);
+  }
+  let showHand = null;
+  if (!!showCard) {
+    showHand = (
+      <ShowHandCard
+        inputCardHand={showCard}
+        count={countCard}
+        onCloseCard={onCloseCard}
+      />
+    );
+  }
 
   return (
     <>
+      {showHand}
+      <form>
+        <label>Show Hand : </label>
+        <select
+          name="rounds"
+          id="rounds"
+          onChange={changeRound}
+          className="option-rounds"
+        >
+          <option value="None">None</option>
+          <option value="2">North</option>
+          <option value="3">East</option>
+          <option value="0">South</option>
+          <option value="1">West</option>
+        </select>
+      </form>
       <p className="direction south-direction">South</p>
       <p className="direction west-direction">West</p>
       <p className="direction north-direction">North</p>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Rowmatch from "./Rowmatch";
+import LoginAdmin from "./LoginPage/LoginAdmin";
 import "./History.css";
 
 export default function History() {
@@ -15,21 +16,25 @@ export default function History() {
   }, []);
 
   return (
-    <table className="styled-table">
-      <thead>
-        <tr>
-          <th>Game Match</th>
-          <th>Date</th>
-          <th>Time Start</th>
-          <th>Time End</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        {status.map((match, key) => (
-          <Rowmatch status={match} key={key} />
-        ))}
-      </tbody>
-    </table>
+    <>
+      {" "}
+      <LoginAdmin />
+      <table className="styled-table">
+        <thead>
+          <tr>
+            <th>Game Match</th>
+            <th>Date</th>
+            <th>Time Start</th>
+            <th>Time End</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {status.map((match, key) => (
+            <Rowmatch status={match} key={key} />
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 }

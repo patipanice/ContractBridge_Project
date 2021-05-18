@@ -27,7 +27,6 @@ export default function Fieldcard(props) {
   };
   function onCloseCard() {
     setShowCard(false);
-    console.log("Hello");
   }
   let showHand = null;
   if (!!showCard) {

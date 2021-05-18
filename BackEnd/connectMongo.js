@@ -72,7 +72,7 @@ const resetMongoInit = async (_id) => {
 };
 
 //Deleted and creted document
-const deleteMatch = async (match,res) => {
+const deleteMatch = async (match, res) => {
   await connectMongo.then((db) => {
     let dbo = db.db("ContractBridgeDB");
     dbo.collection(CARD).deleteOne({ _id: match }, (err) => {
@@ -83,13 +83,13 @@ const deleteMatch = async (match,res) => {
   await connectMongo.then((db) => {
     let dbo = db.db("ContractBridgeDB");
     let cardCollection = {
-      '_id': match,
-      'record_card': [["Back", "Back", "Back", "Back", "Back"]],
+      _id: match,
+      record_card: [["Back", "Back", "Back", "Back", "Back"]],
     };
     dbo.collection(CARD).insertOne(cardCollection, (err) => {
       if (err) throw err;
       console.log(`Insert ${match} document completed`);
-      res.send(`Delete & Insert on match ${match} completed`)
+      res.send(`Delete & Insert on match ${match} completed`);
     });
   });
 };
@@ -103,4 +103,5 @@ module.exports = {
   resetMongoInit,
   createCard,
   deleteMatch,
+  getCardAll,
 };
