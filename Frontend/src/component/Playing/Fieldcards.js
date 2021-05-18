@@ -9,7 +9,7 @@ export default function Fieldcard(props) {
   //var winRound = cardsData['recording'][round][4].substr(4, 7); //GET WINROUND
   const [popupTrump, setPopupTrump] = useState(false);
   const [countCard, setCountCard] = useState(null);
-  const [showCard, setShowCard] = useState(null);
+  const [showCard, setShowCard] = useState(false);
   let trumpPopUp;
 
   const popUpTrumpOpenHandler = () => setPopupTrump(true);
@@ -25,15 +25,24 @@ export default function Fieldcard(props) {
     setCountCard(event.target.value);
     onChangeinput();
   };
-
+  function onCloseCard() {
+    setShowCard(false);
+  }
   let showHand = null;
   if (!!showCard) {
-    showHand = <ShowHandCard inputCardHand={showCard} count={countCard} />;
+    showHand = (
+      <ShowHandCard
+        inputCardHand={showCard}
+        count={countCard}
+        onCloseCard={onCloseCard}
+      />
+    );
   }
 
   return (
     <div>
-      <form>
+      {showHand}
+      <form className="form-hand-card">
         <label>Show Hand : </label>
         <select
           name="rounds"
@@ -48,7 +57,9 @@ export default function Fieldcard(props) {
           <option value="1">West</option>
         </select>
       </form>
-      {showHand}
+      <p>
+        Return to Start<button>Reset</button>{" "}
+      </p>
       <p className="direction south-direction">
         South : {status["win_point"] ? status["win_point"]["South"] : 0}
       </p>

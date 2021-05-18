@@ -14,22 +14,22 @@
 
 .south-card {
   top: 65%;
-  left: 49%;
+  left: 59%;
 }
 
 .east-card {
   top: 40%;
-  left: 70%;
+  left: 80%;
 }
 
 .north-card {
   top: 10%;
-  left: 49%;
+  left: 59%;
 }
 
 .west-card {
   top: 40%;
-  left: 30%;
+  left: 42%;
 }
 
 .winround-card {
@@ -55,7 +55,7 @@ label {
   font-size: 18px;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 60%;
   margin-top: -35px;
   margin-left: -52px;
   border-radius: 5px;
@@ -65,7 +65,7 @@ label {
 .trump_state {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 60%;
   margin-top: -35px;
   margin-left: -50px;
   font-size: 40px;
@@ -81,22 +81,22 @@ label {
 }
 .south-direction {
   top: 60%;
-  left: 50%;
+  left: 60%;
 }
 
 .east-direction {
   top: 35%;
-  left: 72%;
+  left: 82%;
 }
 
 .north-direction {
   top: 6%;
-  left: 50%;
+  left: 60%;
 }
 
 .west-direction {
   top: 35%;
-  left: 32%;
+  left: 42%;
 }
 
 .win-direction {

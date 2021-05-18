@@ -61,20 +61,27 @@ export default function ShowMatch(prop) {
 
   return (
     <div>
-      <div className="content-showmatch" >
-        <div className="content-showmatch-popup-bg" >
-          {/* <button onClick={() => onClickClose(close)}>Close</button> */}
-          <div className="content-showmatch-popup-use" onClick={onClickClose}></div>
-          <SelectRound
-            onChangeRound={onChangeRound}
-            statusRound={status.game_round}
-            round={cardsData.record_card}
-          />
-          <HistoryField
-            status={showMatch}
-            cardsData={cardsData}
-            round={round}
-          />
+      <div className="content-showmatch">
+        <div className="content-showmatch-popup-bg">
+          <div className="content-showmatch-popup-use">
+            <button
+              type="button"
+              class="btn-close closer"
+              aria-label="Close"
+              onClick={onClickClose}
+            ></button>
+            <SelectRound
+              onChangeRound={onChangeRound}
+              statusRound={status.game_round}
+              round={cardsData.record_card}
+            />
+            {/* <SelectMatch onChangeMatch={onChangeMatch} /> */}
+            <HistoryField
+              status={showMatch}
+              cardsData={cardsData}
+              round={round}
+            />
+          </div>
         </div>
       </div>
     </div>
