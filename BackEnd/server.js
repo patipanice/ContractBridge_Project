@@ -10,7 +10,8 @@ var {
   getCard,
   createStatus,
   resetMongoInit,
-  createCard
+  createCard,
+  deleteMatch
 } = require("./connectMongo");
 var app = express();
 app.use(bodyParser.json());
@@ -182,16 +183,16 @@ app.post("/poststatus", (req, res) => {
   let newSQL = { $set: { trump: trump, first_direction: first_direction } };
   updateStatus(mySQL, newSQL).then(console.log("Update status complete")).then(getStatusHandler()).catch(err=>console.log(err));
 });
+
 //get card api
 app.get("/card", (req, res) => {
-  //readCard(res);
+  readAllCard(res);
 });
 
-//get record_card api
-app.get("/recordcard/:round/:match", (req, res) => {
- let round = req.body.round;
- let match = req.body.match;
-  readCard(round,match,res);
+//get record_card api 
+app.get("/recordcard/:match", (req, res) => {
+ let match = req.params.match;
+  readCardM(parseInt(match),res);
 });
 
 
@@ -200,13 +201,29 @@ app.get("/status", (req, res) => {
   readStatus(res);
 });
 
-//read card
-async function readCard(round,match,res) {
-  await getCard(round,match).then((response) => {
+//Deleted Match API 
+app.get("/delete/match/:match", (req, res) => {
+  let match = req.params.match;
+  deleteMatch(parseInt(match),res);
+});
+ 
+
+//read card match function
+async function readCardM(match,round,res) {
+  await getCard(match,round).then((response) => {
+    if (err) throw err;
+    res.json(response);
+    console.log("Read card match passed");
+  });
+}
+
+//read all card
+async function readAllCard(res) {
+  await getCard().then((response) => {
     response.toArray((err, docs) => {
       if (err) throw err;
       res.json(docs);
-      console.log("Read card passed");
+      console.log("Read all card passed");
     });
   });
 }
@@ -221,4 +238,6 @@ async function readStatus(res) {
     });
   });
 }
+
+
     

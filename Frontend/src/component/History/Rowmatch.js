@@ -3,9 +3,7 @@ import EndTime from "./EndTime";
 import UpDate from "./UpDate";
 import StartTime from "./StartTime";
 import Status from "./Status";
-
 import "./Rowmatch.css";
-
 import ShowMatch from "./ShowMatch";
 
 export default function Rowmatch(props) {
@@ -14,7 +12,6 @@ export default function Rowmatch(props) {
 
   function onClickClose() {
     setShowMatch(false);
-    console.log(showMatch);
   }
 
   function onClickTR(statusMatch) {
@@ -29,6 +26,8 @@ export default function Rowmatch(props) {
   }
 
   return (
+    <>
+    {showNewmatch}
     <tr
       onClick={() => {
         onClickTR(status);
@@ -47,7 +46,7 @@ export default function Rowmatch(props) {
       <td>
         <Status gameRound={status.game_round} />
       </td>
-      {showNewmatch}
     </tr>
+    </>
   );
 }
