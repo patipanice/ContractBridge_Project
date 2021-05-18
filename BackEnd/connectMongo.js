@@ -1,9 +1,8 @@
 var MongoClient = require("mongodb").MongoClient;
-var cardJson = require("./jsonDB/card.json");
-//var statusJson =require("./jsonDB/status.json");
 const URL = "mongodb://localhost:27017/ContractBridgeDB";
 const STATUS = "status";
 const CARD = "card";
+const USER = "user";
 
 //Connect MongoDB
 const connectMongo = MongoClient.connect(URL, {
@@ -11,24 +10,33 @@ const connectMongo = MongoClient.connect(URL, {
   useUnifiedTopology: true,
 });
 
+//Find All user
+const loginSessionHandler = () =>
+  connectMongo.then((db) => {
+    let dbo = db.db("ContractBridgeDB");
+    let loginData = dbo.collection("user").findOne({ _id: 1 });
+    return loginData;
+  });
+
+//Get Status All
 const getStatus = () =>
   connectMongo.then((db) => {
     let dbo = db.db("ContractBridgeDB");
     return dbo.collection(STATUS).find({});
   });
 
-//Get Cards
-const getCard = () =>
-  connectMongo.then((db) => {
-    let dbo = db.db("ContractBridgeDB");
-    return dbo.collection(CARD).find({});
-  });
-
-//Get Cards
-const getCardAll = (match) =>
+//Get Cards Match
+const getCardMatch = (match) =>
   connectMongo.then((db) => {
     let dbo = db.db("ContractBridgeDB");
     return dbo.collection(CARD).findOne({ _id: match });
+  });
+
+//Get Cards All
+const getCardAll = () =>
+  connectMongo.then((db) => {
+    let dbo = db.db("ContractBridgeDB");
+    return dbo.collection(CARD).find({});
   });
 
 const updateStatus = async (query, newquery) =>
@@ -49,12 +57,6 @@ const createCard = (query) =>
     return dbo.collection(CARD).insertOne(query);
   });
 
-/*const insertCard = (myquery, newvalues) =>
-  connectMongo.then((db) => {
-    let dbo = db.db("ContractBridgeDB");
-    return dbo.collection("card").updateOne(myquery, newvalues);
-  });*/
-
 const insertCard = (myquery, newquery) =>
   connectMongo.then((db) => {
     let dbo = db.db("ContractBridgeDB");
@@ -71,8 +73,8 @@ const resetMongoInit = async (_id) => {
   });
 };
 
-//Deleted and creted document
-const deleteMatch = async (match,res) => {
+//Deleted and creted document and update status
+const deleteMatch = async (match, res) => {
   await connectMongo.then((db) => {
     let dbo = db.db("ContractBridgeDB");
     dbo.collection(CARD).deleteOne({ _id: match }, (err) => {
@@ -80,16 +82,45 @@ const deleteMatch = async (match,res) => {
       console.log(`Delete ${match} document completed`);
     });
   });
+
   await connectMongo.then((db) => {
     let dbo = db.db("ContractBridgeDB");
     let cardCollection = {
-      '_id': match,
-      'record_card': [["Back", "Back", "Back", "Back", "Back"]],
+      _id: match,
+      record_card: [["Back", "Back", "Back", "Back", "Back"]],
     };
     dbo.collection(CARD).insertOne(cardCollection, (err) => {
       if (err) throw err;
       console.log(`Insert ${match} document completed`);
-      res.send(`Delete & Insert on match ${match} completed`)
+      res.send(`Delete & Insert on match ${match} completed`);
+    });
+  });
+
+  //Update status
+
+  await connectMongo.then((db) => {
+    let dbo = db.db("ContractBridgeDB");
+    dbo.collection(STATUS).deleteOne({ _id: match }, (err) => {
+      if (err) throw err;
+      console.log(`Delete status on match ${match} completed`);
+    });
+  });
+  await connectMongo.then((db) => {
+    let date = new Date();
+    let statusCollection = {
+      _id: match,
+      game_match: match,
+      trump: "South",
+      game_round: 1,
+      first_direction: "South",
+      end_date_time: date,
+      start_date_time: date,
+      win_point: { South: 0, West: 0, North: 0, East: 0 },
+    };
+    let dbo = db.db("ContractBridgeDB");
+    dbo.collection(STATUS).insertOne(statusCollection, (err) => {
+      if (err) throw err;
+      console.log(`Update status on match ${match} completed`);
     });
   });
 };
@@ -98,9 +129,11 @@ module.exports = {
   getStatus,
   updateStatus,
   insertCard,
-  getCard,
+  getCardMatch,
   createStatus,
   resetMongoInit,
   createCard,
   deleteMatch,
+  getCardAll,
+  loginSessionHandler,
 };
