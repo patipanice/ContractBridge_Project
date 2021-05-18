@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useToken from "./useToken";
 import LoginAdmin from "./LoginAdmin";
 import DelMatch from "./DelMatch";
+import axios from "axios";
 
 export default function Dashboard() {
   const { token, setToken } = useToken();

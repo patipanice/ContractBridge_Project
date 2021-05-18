@@ -110,7 +110,7 @@ const deleteMatch = async (match, res) => {
     let statusCollection = {
       _id: match,
       game_match: match,
-      trump: "South",
+      trump: "None",
       game_round: 1,
       first_direction: "South",
       end_date_time: date,

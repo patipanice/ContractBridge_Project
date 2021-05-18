@@ -3,7 +3,7 @@ var cors = require("cors");
 const bodyParser = require("body-parser");
 const editarrData = require("./editarrData");
 const { resultRound } = require("./resultRound");
-var {  
+var {
   getStatus,
   updateStatus,
   insertCard,
@@ -12,7 +12,7 @@ var {
   createCard,
   deleteMatch,
   getCardAll,
-  loginSessionHandler
+  loginSessionHandler,
 } = require("./connectMongo");
 const { response } = require("express");
 var app = express();
@@ -24,19 +24,20 @@ var port = process.env.PORT || 5000;
 var arrData = []; //recive 4 cards form arduino
 //init status
 var gameStatus = {
-  'game_match': 1,
-  'game_round': 1,
-  'trump': "None",
-  'first_direction': "South",
-  'start_date_time': "2021-05-15T17:04:35.680+00:00",
-  'end_date_time': "2021-05-15T17:04:35.680+00:00",
-  'win_point': {
-    "South": 0,
-    "West": 0,
-    "North": 0,
-    "East": 0
-}};
-   
+  game_match: 1,
+  game_round: 1,
+  trump: "None",
+  first_direction: "South",
+  start_date_time: "2021-05-15T17:04:35.680+00:00",
+  end_date_time: "2021-05-15T17:04:35.680+00:00",
+  win_point: {
+    South: 0,
+    West: 0,
+    North: 0,
+    East: 0,
+  },
+};
+
 //Get last status form last game_match form Mongo
 const getStatusHandler = () => {
   getStatus().then((res) => {
@@ -189,10 +190,13 @@ app.post("/poststatus", (req, res) => {
   let first_direction = req.body.first_direction;
   let mySQL = { _id: gameStatus.game_match };
   let newSQL = { $set: { trump: trump, first_direction: first_direction } };
-  updateStatus(mySQL, newSQL).then(()=>{
-    console.log("Update Post status complete");
-    res.send("Update Post status complete")
-  }).then(getStatusHandler()).catch(err=>console.log(err)); 
+  updateStatus(mySQL, newSQL)
+    .then(() => {
+      console.log("Update Post status complete");
+      res.send("Update Post status complete");
+    })
+    .then(getStatusHandler())
+    .catch((err) => console.log(err));
 });
 
 //Get card api
@@ -200,12 +204,11 @@ app.get("/card", (req, res) => {
   readAllCard(res);
 });
 
-//Get record_card api  
+//Get record_card api
 app.get("/recordcard/:match", (req, res) => {
- let match = req.params.match;
-  readCardMatch(parseInt(match),res);
+  let match = req.params.match;
+  readCardMatch(parseInt(match), res);
 });
-
 
 //Get status api
 app.get("/status", (req, res) => {
@@ -217,31 +220,31 @@ app.get("/delete/match/:match", (req, res) => {
   let match = req.params.match;
   deleteMatch(parseInt(match), res);
 });
- 
-//Post Login API 
-app.post("/login", (req,res) => {
+
+//Post Login API
+app.post("/login", (req, res) => {
   let username = req.body.username;
-  let password = req.body.password
+  let password = req.body.password;
   console.log(`username : ${username} , password : ${password}`);
-  loginSession(username,password,res)
+  loginSession(username, password, res);
 });
 
 //Login function
-function loginSession(username,password,res) {
-  loginSessionHandler().then((response,err)=>{
-    if(response.username === username && response.password === password){
-      res.send({'token': response.session});
-    }else{
-      res.send({'token': 'Failed'});
+function loginSession(username, password, res) {
+  loginSessionHandler().then((response, err) => {
+    if (response.username === username && response.password === password) {
+      res.send({ token: response.session });
+    } else {
+      res.send({ token: "Failed" });
     }
   });
 }
 
 //read card match function
-async function readCardMatch(match,res) {
-  await getCardMatch(match).then((response,err) => {
+async function readCardMatch(match, res) {
+  await getCardMatch(match).then((response, err) => {
     if (err) throw err;
-    res.json(response)
+    res.json(response);
     console.log("Read card match passed");
   });
 }
@@ -256,7 +259,7 @@ async function readAllCard(res) {
     });
   });
 }
- 
+
 //read status function
 async function readStatus(res) {
   await getStatus().then((response) => {

@@ -1,7 +1,5 @@
 //********************************************* คำนวนไพ่ และ ชนะรอบ ***************************************//
 
-const e = require("express");
-
 const resultRound = (arrData, trump) => {
   console.log(
     ".................... Resulting round state ...................."
