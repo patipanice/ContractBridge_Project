@@ -1,8 +1,8 @@
-.content-trump {
+.content-hand {
   background-color: rgba(0, 0, 0, 0);
 }
 
-.content-trump-popup-bg {
+.content-hand-popup-bg {
   position: absolute;
   top: 15%;
   bottom: center;
@@ -10,7 +10,7 @@
   right: 0;
 }
 
-.content-trump-popup-use {
+.content-hand-popup-use {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -23,7 +23,7 @@
   float: left;
 }
 
-.content-trump-popup-use img {
+.content-hand-popup-use img {
   max-width: 100px;
   max-height: 120px;
   width: auto;

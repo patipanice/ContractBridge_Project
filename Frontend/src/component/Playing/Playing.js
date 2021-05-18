@@ -4,7 +4,7 @@ import Fieldcard from "./Fieldcards";
 import SelectRound from "./SelectRound";
 import SelectMatch from "./SelectMatch";
 import HandCards from "./HandCards";
-import "./Fieldcards.css";
+// import "./Fieldcards.css";
 const cardJson = require("../JSONFile/card.json");
 
 export default function Playing() {
