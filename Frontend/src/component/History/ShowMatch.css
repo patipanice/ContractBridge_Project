@@ -17,14 +17,18 @@
   bottom: center;
   left: center;
   right: center;
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
 }
 
 .content-showmatch-popup-use {
   position: relative;
   max-width: 1440px;
+  max-width: 720px;
   background-color: white;
-  width: 990px;
-  height: 900px;
+  width: 1000px;
+  height: 720px;
   padding: 5px;
   border-radius: 5px;
 }

@@ -25,7 +25,7 @@ var arrData = []; //recive 4 cards form arduino
 //init status
 var gameStatus = {
   game_match: 1,
-  game_round: 1,
+  game_round: 0,
   trump: "None",
   first_direction: "South",
   start_date_time: "2021-05-15T17:04:35.680+00:00",
@@ -57,7 +57,7 @@ const getStatusHandler = () => {
             West: docs[0].win_point.West,
             North: docs[0].win_point.North,
             East: docs[0].win_point.East,
-          }, 
+          },
         };
         console.log(gameStatus);
         if (gameStatus.game_round === 13) {

@@ -68,6 +68,11 @@ export default function Fieldcard(props) {
       ],
     });
   };
+
+  const Hello = () => {
+    console.log("Hello World");
+  };
+
   return (
     <div>
       {showHand}
@@ -87,8 +92,14 @@ export default function Fieldcard(props) {
         </select>
       </form>
       <p>
-        Return to Start
-        <button onClick={submit}>Reset</button>{" "}
+        Return to Start{" "}
+        <button
+          onClick={() => {
+            status["trump"] == "None" ? Hello() : submit();
+          }}
+        >
+          Reset
+        </button>
       </p>
       <p className="direction south-direction">
         South : {status["win_point"] ? status["win_point"]["South"] : 0}
@@ -181,7 +192,10 @@ export default function Fieldcard(props) {
             alt="trump"
             className="trump-img"
           />
-          / {status["trump"].charAt(1)}
+          /{" "}
+          {status["trump"].charAt(1) == "T"
+            ? status["trump"].charAt(2)
+            : status["trump"].charAt(1)}
         </h1>
       )}
     </div>

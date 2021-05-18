@@ -3,10 +3,10 @@
     "_id": 1,
     "game_match": 1,
     "trump": "H1",
-    "game_round": 1,
+    "game_round": 0,
     "first_direction": "South",
     "end_date_time": { "$date": "2021-05-15T17:34:46.583Z" },
     "start_date_time": { "$date": "2021-05-17T12:32:12.224Z" },
-    "win_point": { "South": 0, "West": 0, "North": 0, "East": 0}
+    "win_point": { "South": 0, "West": 0, "North": 0, "East": 0 }
   }
-] 
+]
