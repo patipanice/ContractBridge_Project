@@ -11,7 +11,7 @@ export default function Home() {
                 <img src="./images/IconD.png" alt="icon" className="img-iconD" />
                 <img src="./images/IconC.png" alt="icon" className="img-icon" />
             </div>
-            <h1>CONTRACT BRIDGE PLAYING</h1>
+            <h1 className="heading">CONTRACT BRIDGE PLAYING</h1>
             <Typing />
         </div>
     )

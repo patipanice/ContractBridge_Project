@@ -184,8 +184,16 @@ app.post("/poststatus", (req, res) => {
 });
 //get card api
 app.get("/card", (req, res) => {
-  readCard(res);
+  //readCard(res);
 });
+
+//get record_card api
+app.get("/recordcard/:round/:match", (req, res) => {
+ let round = req.body.round;
+ let match = req.body.match;
+  readCard(round,match,res);
+});
+
 
 //get status api
 app.get("/status", (req, res) => {
@@ -193,8 +201,8 @@ app.get("/status", (req, res) => {
 });
 
 //read card
-async function readCard(res) {
-  await getCard().then((response) => {
+async function readCard(round,match,res) {
+  await getCard(round,match).then((response) => {
     response.toArray((err, docs) => {
       if (err) throw err;
       res.json(docs);

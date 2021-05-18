@@ -18,10 +18,11 @@ const getStatus = () =>
     return dbo.collection(STATUS).find({});
   });
 
-const getCard = () =>
+//Get Cards
+const getCard = (match,round) =>
   connectMongo.then((db) => {
     let dbo = db.db("ContractBridgeDB");
-    return dbo.collection(CARD).find({});
+    return dbo.collection(CARD).find({ _id : match});
   });
 
 const updateStatus = async (query, newquery) =>

@@ -7,6 +7,7 @@
     padding:0;
     box-sizing: border-box;
 }
+
 .flex {
     margin-top: 250px;
     display: flex;
@@ -21,12 +22,13 @@
     margin-top: 200px;
 }
 
-h1{
+.heading{
     font-family: 'Josefin Sans', sans-serif;
     margin-top: 12px;
     margin-bottom: -10px;
     font-size: 30px;
     letter-spacing: 2.5px;
+    z-index: 23;
 }
 
 h3{

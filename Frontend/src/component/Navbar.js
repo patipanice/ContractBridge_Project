@@ -21,7 +21,7 @@ export default function Navbar() {
         </li>
         <li>
           <Link to="/aboutme" className="link">
-            ABOUT ME
+            ABOUT
           </Link>
         </li>
       </ul>
