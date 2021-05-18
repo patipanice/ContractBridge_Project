@@ -19,6 +19,9 @@ function App() {
     <Router>
       <div>
         <Switch>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
           <Route path="/aboutme">
             <AboutMe />
           </Route>
@@ -33,12 +36,6 @@ function App() {
           </Route>
         </Switch>
         <Navbar />
-
-        <Switch>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-        </Switch>
       </div>
     </Router>
   );

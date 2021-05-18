@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Rowmatch from "./Rowmatch";
-import LoginAdmin from "./LoginPage/LoginAdmin";
+
 import "./History.css";
 
 export default function History() {
@@ -18,7 +18,6 @@ export default function History() {
   return (
     <>
       {" "}
-      <LoginAdmin />
       <table className="styled-table">
         <thead>
           <tr>

@@ -19,7 +19,11 @@ export default function Navbar() {
             HISTORY
           </Link>
         </li>
-
+        <li>
+          <Link to="/dashboard" className="link">
+            ADMIN
+          </Link>
+        </li>
         <li>
           <Link to="/aboutme" className="link">
             ABOUT
