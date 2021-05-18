@@ -8,16 +8,17 @@ export default function Dashboard() {
   const { token, setToken } = useToken();
   const [status, setStatus] = useState([]);
 
+  useEffect(() => {
+    axios.get("http://localhost:5000/status").then((result) => {
+      const { data } = result;
+      //console.log(data);
+      setStatus(data);
+    });
+  }, []);
+
   if (!token) {
     return <LoginAdmin setToken={setToken} />;
   }
-  // useEffect(() => {
-  //   axios.get("http://localhost:5000/status").then((result) => {
-  //     const { data } = result;
-  //     //console.log(data);
-  //     setStatus(data);
-  //   });
-  // }, []);
 
   return (
     <>
