@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.24);
+  background-color: rgba(0, 0, 0, 0.767);
 }
 .content-showmatch-popup-bg {
   position: absolute;
@@ -23,8 +23,8 @@
   position: relative;
   max-width: 1440px;
   background-color: white;
-  width: 1440px;
-  height: 800px;
+  width: 960px;
+  height: 440px;
   padding: 5px;
   border-radius: 5px;
 }
