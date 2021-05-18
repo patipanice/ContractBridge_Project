@@ -5,14 +5,20 @@ const resultRound = (arrData, trump) => {
   console.log(
     ".................... Resulting round state ...................."
   );
+
+  let findTrump = arrData.find((res) => {
+    res.charAt(0) == trump.charAt(0);
+  });
+  console.log(findTrump);
+
   let firstChar = arrData[0].charAt(0);
   let maxValue = 0;
   let winRound = "null";
   let indexWin = 0;
   //กรณีเป็น NT
-  if (trump.charAt(0) === "N") {
+  if (trump.charAt(0) === "N" || findTrump === undefined) {
     let MaxTrump = arrData[0].charAt(0); //H
-    console.log(MaxTrump);
+    console.log("Hello" + MaxTrump);
     const arrNum0 = arrData.filter(
       (data) => data.charAt(0).toString() == MaxTrump.toString()
     );
