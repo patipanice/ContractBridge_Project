@@ -29,25 +29,27 @@ export default function Rowmatch(props) {
   }
 
   return (
-    <tr
-      onClick={() => {
-        onClickTR(status);
-      }}
-    >
-      <td>{status._id}</td>
-      <td>
-        <UpDate inputDate={status.start_date_time} />
-      </td>
-      <td>
-        <StartTime inputStartTime={status.start_date_time} />
-      </td>
-      <td>
-        <EndTime inputEndTime={status.end_date_time} />
-      </td>
-      <td>
-        <Status gameRound={status.game_round} />
-      </td>
+    <>
       {showNewmatch}
-    </tr>
+      <tr
+        onClick={() => {
+          onClickTR(status);
+        }}
+      >
+        <td>{status._id}</td>
+        <td>
+          <UpDate inputDate={status.start_date_time} />
+        </td>
+        <td>
+          <StartTime inputStartTime={status.start_date_time} />
+        </td>
+        <td>
+          <EndTime inputEndTime={status.end_date_time} />
+        </td>
+        <td>
+          <Status gameRound={status.game_round} />
+        </td>
+      </tr>
+    </>
   );
 }

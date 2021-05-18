@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./HistoryField";
 
 const cardJson = require("../../cards.json");
 
