@@ -12,7 +12,7 @@ export default function DelMatch(props) {
   function onReset() {
     console.log("Hello " + status._id);
     axios.get(`http://localhost:5000/delete/match/${status._id}`);
-  }
+  } 
 
   const submit = () => {
     confirmAlert({
@@ -56,3 +56,4 @@ export default function DelMatch(props) {
     </>
   );
 }
+  

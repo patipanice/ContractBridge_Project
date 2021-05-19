@@ -3,18 +3,21 @@
 //CASE 2 ---> IF TRUMP !== NT ---> FIND IN ARRDATA.CHARAT(0)? == TRUMP ---> IF(1) ---> GET RESULT AND INDEX ---> IF(>1) --->
 // -->  FIND MAX(...NEWARRDATA(INT)) ---> FIND IN NEW ARRDATA AND GET WINROUND AND INDEX
 
-// var arrData = ['H02','S02','H04','S01'];
-// var trump = 'S';
+// var arrData = ['H02','S03','H04','S06'];
+// var trump = 'N';
 
 const resultRound = (arrData, trump) => {
   //arrData = [H02,A02,S04,S01]  trump=[H,C,S,A,NT]
   console.log(
     ".................... Resulting round state ...................."
   );
+
+  let checkArr = arrData.find((arr) => arr.charAt(0) === trump);
+
   //CASE 1
-  if (trump === "N") {
+  if (trump === "N" || checkArr === undefined) {
     trump = arrData[0].charAt(0); //Define
-    //console.log(`trump : ${trump}`)
+    console.log(`trump : ${trump}`);
     let checkarrTrump = arrData.filter((data) => data.charAt(0) === trump); //CHECK HAVE MORE 1 ?
     //console.log(`checkarrTrump : ${checkarrTrump}`);
     //CASE 1 --> IF(1)
@@ -25,6 +28,7 @@ const resultRound = (arrData, trump) => {
     } else {
       //CASE 1 --> IF(>1)
       let [winRound, winDirection] = findMax(checkarrTrump, trump, arrData);
+      console.log(winRound, winDirection);
       return [winRound, winDirection];
     }
   } else {
@@ -77,6 +81,6 @@ const changeDirection = (num) => {
   }
 };
 
-// resultRound(arrData,trump); FOR TEST
+resultRound(arrData, trump);
 
 module.exports = { resultRound };
