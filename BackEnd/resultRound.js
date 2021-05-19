@@ -35,12 +35,12 @@ const resultRound = (arrData, trump) => {
   } else {
     //CASE 2
     let trump = arrData[0].charAt(0);
-    let checkarrTrump = arrData.filter((data) => data.charAt(0) !== trump);
+    let checkarrTrump = arrData.filter((data) => data.charAt(0) === trump);
     console.log(`checkarrTrump : ${checkarrTrump}`);
     if (checkarrTrump.length === 1) {
       console.log("checkarrTrump.length == 1");
       let winDirection = 0;
-      return [checkarrTrump[0], winDirection];
+      return [checkarrTrump[0], changeDirection(winDirection)];
     } else {
       //CASE 2 --> IF(>1)
       let [winRound, winDirection] = findMax(checkarrTrump, trump, arrData);

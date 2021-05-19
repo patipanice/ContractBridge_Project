@@ -1,11 +1,9 @@
 const editArrData = (arrData, first_direction, round) => {
   // console.log(arrData, first_direction);
-  if (round == 1) {
-    return arrData 
-  }
+
   let newarrData = [];
   if (first_direction == "South") {
-    //console.log("first_direction : South"); 
+    //console.log("first_direction : South");
     newarrData[0] = arrData[0];
     newarrData[1] = arrData[1];
     newarrData[2] = arrData[2];
