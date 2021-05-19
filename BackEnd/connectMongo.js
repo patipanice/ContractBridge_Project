@@ -10,6 +10,7 @@ const connectMongo = MongoClient.connect(URL, {
   useUnifiedTopology: true,
 });
 
+
 //Find All user
 const loginSessionHandler = () =>
   connectMongo.then((db) => {
@@ -42,7 +43,7 @@ const getCardAll = () =>
 const updateStatus = async (query, newquery) =>
   await connectMongo.then((db) => {
     let dbo = db.db("ContractBridgeDB");
-    return dbo.collection(STATUS).update(query, newquery);
+    return dbo.collection(STATUS).updateOne(query, newquery);
   });
 
 const createStatus = (query) =>
@@ -57,11 +58,13 @@ const createCard = (query) =>
     return dbo.collection(CARD).insertOne(query);
   });
 
-const insertCard = (myquery, newquery) =>
-  connectMongo.then((db) => {
+
+const insertCard =  (myquery, newquery) =>
+ connectMongo.then((db) => {
     let dbo = db.db("ContractBridgeDB");
     return dbo.collection(CARD).updateOne(myquery, newquery);
   });
+
 
 const resetMongoInit = async (_id) => {
   await connectMongo.then((db) => {
@@ -80,7 +83,7 @@ const deleteMatch = async (match, res) => {
     dbo.collection(CARD).deleteOne({ _id: match }, (err) => {
       if (err) throw err;
       console.log(`Delete ${match} document completed`);
-    });
+    }); 
   });
 
   await connectMongo.then((db) => {
@@ -110,7 +113,7 @@ const deleteMatch = async (match, res) => {
     let statusCollection = {
       _id: match,
       game_match: match,
-      trump: "South",
+      trump: "None",
       game_round: 1,
       first_direction: "South",
       end_date_time: date,
