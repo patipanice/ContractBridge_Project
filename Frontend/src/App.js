@@ -1,12 +1,11 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import React, { useState } from "react";
-import Home from "./component/Home";
+import React from "react";
+import Home from "./component/Home/Home";
 import Playing from "./component/Playing/Playing";
-import AboutMe from "./component/AboutMe";
-import Navbar from "./component/Navbar";
+import AboutMe from "./component/About/AboutMe";
+import Navbar from "./component/Navbar/Navbar";
 import History from "./component/History/History";
 import Dashboard from "./component/History/LoginPage/Dashboard";
-import LoginAdmin from "./component/History/LoginPage/LoginAdmin";
 
 function App() {
 

@@ -7,29 +7,30 @@
 .content-fieldcards {
   display: block;
 }
-.card {
-  width: 90px;
+
+.Cards {
+  width: 8%;
   position: absolute;
 }
 
-.south-card {
-  top: 65%;
-  left: 59%;
+.SouthCard {
+  top: 70%;
+  left: 65%;
 }
 
-.east-card {
-  top: 40%;
-  left: 80%;
+.EastCard {
+  top: 48%;
+  left: 81%;
 }
 
-.north-card {
-  top: 10%;
-  left: 59%;
+.NorthCard {
+  top: 28%;
+  left: 65%;
 }
 
-.west-card {
-  top: 40%;
-  left: 42%;
+.WestCard {
+  top: 48%;
+  left: 50%;
 }
 
 .winround-card {
@@ -62,49 +63,67 @@ label {
   border-color: rgb(255, 255, 255);
 }
 
-.trump_state {
-  position: absolute;
-  top: 50%;
-  left: 60%;
-  margin-top: -35px;
-  margin-left: -50px;
-  font-size: 40px;
-}
+
 .win-round {
   position: absolute;
   color: rgb(255, 8, 8);
 }
 
-.direction {
+.Directions {
   position: absolute;
   color: rgb(7, 0, 0);
 }
-.south-direction {
-  top: 60%;
-  left: 60%;
+
+.SD {
+  top: 67%;
+  left: 66.5%;
 }
 
-.east-direction {
-  top: 35%;
-  left: 82%;
+.ED {
+  top: 45%;
+  left: 83.52%;
 }
 
-.north-direction {
-  top: 6%;
-  left: 60%;
+.ND {
+  top: 24%;
+  left: 66.5%;
 }
 
-.west-direction {
-  top: 35%;
-  left: 42%;
+.WD {
+  top: 45%;
+  left: 52%;
 }
 
-.win-direction {
+
+.WIND {
+  top: 76%;
+  left: 85%;
+}
+
+.TrumpImg {
+  max-width: 4%;
+}
+
+.TrumpState {
   position: absolute;
-  top: 420px;
-  left: 1230px;
+  top: 60%;
+  left: 44%;
+  margin-top: -35px;
+  margin-left: -50px;
+  font-size: 30px;
 }
-
-.trump-img {
-  max-width: 3%;
+.HandLabel{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 24px;
+}
+.OptionHand{
+  margin-top: 20px;
+  margin-left: 30px;
+  width: 10%; 
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: rgba(199, 199, 199, 0.918);
 }

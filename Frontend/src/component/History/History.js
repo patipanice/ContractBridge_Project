@@ -10,7 +10,6 @@ export default function History() {
   useEffect(() => {
     axios.get("http://localhost:5000/status").then((result) => {
       const { data } = result;
-      //console.log(data);
       setStatus(data);
     });
   }, []);

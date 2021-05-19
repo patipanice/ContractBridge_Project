@@ -4,7 +4,6 @@ const cardJson = require("../../cards.json");
 
 export default function ShowHandCards(prop) {
   const { inputCardHand, count, onCloseCard } = prop;
-  const ShowHandcard = null;
 
   return (
     <div>

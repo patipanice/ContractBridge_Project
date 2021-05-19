@@ -4,11 +4,13 @@
   margin-left: 15px;
   margin-top: 15px;
 }
+
 .content-fieldcards {
   display: block;
 }
+
 .card {
-  width: 90px;
+  width: 7%;
   position: absolute;
 }
 
@@ -19,7 +21,7 @@
 
 .east-card {
   top: 40%;
-  left: 80%;
+  left: 75%;
 }
 
 .north-card {
@@ -29,7 +31,7 @@
 
 .west-card {
   top: 40%;
-  left: 42%;
+  left: 44%;
 }
 
 .winround-card {
@@ -67,18 +69,23 @@ label {
   top: 50%;
   left: 60%;
   margin-top: -35px;
-  margin-left: -50px;
-  font-size: 40px;
+  margin-left: -10px;
+  font-size: 35px;
 }
+
 .win-round {
   position: absolute;
   color: rgb(255, 8, 8);
 }
 
+
 .direction {
   position: absolute;
-  color: rgb(7, 0, 0);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  color: rgb(20, 20, 20);
 }
+
 .south-direction {
   top: 60%;
   left: 60%;
@@ -86,7 +93,7 @@ label {
 
 .east-direction {
   top: 35%;
-  left: 82%;
+  left: 76.5%;
 }
 
 .north-direction {
@@ -96,7 +103,7 @@ label {
 
 .west-direction {
   top: 35%;
-  left: 42%;
+  left: 45%;
 }
 
 .win-direction {
@@ -106,5 +113,23 @@ label {
 }
 
 .trump-img {
-  max-width: 10%;
+  max-width: 5%;
 }
+
+.label-hand{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 24px;
+}
+
+.option-hands{ 
+  margin-top: 20px;
+  margin-left: 35px;
+  width: 7%; 
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: rgba(199, 199, 199, 0.918);
+}
+

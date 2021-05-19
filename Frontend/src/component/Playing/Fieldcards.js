@@ -76,13 +76,14 @@ export default function Fieldcard(props) {
   return (
     <div>
       {showHand}
-      <form className="form-hand-card">
-        <label>Show Hand : </label>
+
+      <form>
+        <label className="label-hand">Show Hand : </label>
         <select
           name="rounds"
           id="rounds"
           onChange={changeRound}
-          className="option-rounds"
+          className="option-hands"
         >
           <option value="None">None</option>
           <option value="2">North</option>
@@ -91,7 +92,8 @@ export default function Fieldcard(props) {
           <option value="1">West</option>
         </select>
       </form>
-      <p>
+
+      {/* <p>
         Return to Start{" "}
         <button
           onClick={() => {
@@ -100,7 +102,8 @@ export default function Fieldcard(props) {
         >
           Reset
         </button>
-      </p>
+
+      </p> */}
       <p className="direction south-direction">
         South : {status["win_point"] ? status["win_point"]["South"] : 0}
       </p>

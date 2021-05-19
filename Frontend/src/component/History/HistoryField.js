@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./HistoryField";
+import "./HistoryField.css";
 import ShowHandCard from "../Playing/ShowHandCards";
 
 const cardJson = require("../../cards.json");
@@ -9,9 +9,11 @@ export default function Fieldcard(props) {
   const [showCard, setShowCard] = useState(false);
   const [countCard, setCountCard] = useState(null);
 
+
   function onChangeinput() {
     setShowCard(cardsData["record_card"]);
   }
+
   const changeRound = (event) => {
     setCountCard(event.target.value);
     onChangeinput();
@@ -34,12 +36,12 @@ export default function Fieldcard(props) {
     <>
       {showHand}
       <form>
-        <label>Show Hand : </label>
+        <label className="HandLabel">Show Hand : </label>
         <select
           name="rounds"
           id="rounds"
           onChange={changeRound}
-          className="option-rounds"
+          className="OptionHand"
         >
           <option value="None">None</option>
           <option value="2">North</option>
@@ -48,13 +50,10 @@ export default function Fieldcard(props) {
           <option value="1">West</option>
         </select>
       </form>
-      <p className="direction south-direction">South</p>
-      <p className="direction west-direction">West</p>
-      <p className="direction north-direction">North</p>
-      <p className="direction east-direction">East</p>
-      <p className="direction win-direction">
-        {/* {cardsData["record_card"][round][4]} */}
-      </p>
+      <p className="Directions SD">South</p>
+      <p className="Directions WD">West</p>
+      <p className="Directions ND">North</p>
+      <p className="Directions ED">East</p>
       {
         <img
           src={
@@ -64,8 +63,8 @@ export default function Fieldcard(props) {
                 : "Back"
             ]
           }
-          className="card south-card"
-          alt="south-card"
+          className="Cards SouthCard"
+          alt="SouthCard"
         />
       }
       {
@@ -77,8 +76,8 @@ export default function Fieldcard(props) {
                 : "Back"
             ]
           }
-          className="card west-card"
-          alt="west-card"
+          className="Cards WestCard"
+          alt="WestCard"
         />
       }
       {
@@ -90,8 +89,8 @@ export default function Fieldcard(props) {
                 : "Back"
             ]
           }
-          className="card north-card"
-          alt="north-card"
+          className="Cards NorthCard"
+          alt="NorthCard"
         />
       }
       {
@@ -103,8 +102,8 @@ export default function Fieldcard(props) {
                 : "Back"
             ]
           }
-          className="card east-card"
-          alt="east-card"
+          className="Cards EastCard"
+          alt="EastCard"
         />
       }
       {
@@ -116,17 +115,18 @@ export default function Fieldcard(props) {
                 : ""
             ]
           }
-          className="winround-card"
+          className="Cards WIND "
         />
       }
+
       {status["trump"] === "None" ? (
         ""
       ) : (
-        <h1 className="trump_state">
+        <h1 className="TrumpState">
           <img
             src={cardJson[status["trump"].charAt(0)]}
             alt="trump"
-            className="trump-img"
+            className="TrumpImg"
           />
           / {status["trump"].charAt(1)}
         </h1>

@@ -29,27 +29,13 @@ export default function Login({ setToken }) {
 
   return (
     <div className="login-wrapper">
-      <h1>Please Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <p>Username</p>
-          <input
-            type="text"
-            onChange={(e) => setUserName(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          <p>Password</p>
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <div>
-          <button type="submit">Submit</button>
-        </div>
+      <h1 className="header-login">Login</h1>
+      <form onSubmit={handleSubmit} className="formflex">  
+          <label className="label">Username</label>
+          <input type="text" onChange={(e) => setUserName(e.target.value)} required />
+          <label  className="label">Password</label>
+          <input type="password" onChange={(e) => setPassword(e.target.value)} required />
+          <button type="submit" className="btns">Submit</button>
       </form>
     </div>
   );
