@@ -52,14 +52,14 @@ createStatus(gameStatus).then((err) => {
   } else {
     console.log("Create Successfull");
   }
-}); 
+});
 
 //Get last status form last game_match form Mongo
-const getStatusHandler =  async () => {
-  return await  getStatus().then((res) => {
+const getStatusHandler = async () => {
+  return await getStatus().then((res) => {
     res
       .sort({ _id: -1 })
-      .limit(1) 
+      .limit(1)
       .toArray((err, docs) => {
         gameStatus = {
           _id: docs[0]._id,
@@ -112,7 +112,7 @@ const getStatusHandler =  async () => {
 
 app.listen(port, () => {
   console.log("[success] : listening on port " + port);
-  getStatusHandler().catch(err=>console.log(err));
+  getStatusHandler().catch((err) => console.log(err));
 });
 
 app.get("/", (req, res) => {
@@ -148,7 +148,7 @@ app.get("/write/:data", (req, res) => {
       let newvalues = {
         $push: { record_card: [...arrData, `${winRound}_${first_direciton}`] },
       };
-      
+
       insertCardHandler(myquery, newvalues);
 
       let date = new Date(); //get Local time
@@ -195,7 +195,7 @@ const insertCardHandler = async (myquery, newvalues) => {
 const updateStatusHandler = async (myquery, newvalues) => {
   await updateStatus(myquery, newvalues).catch((err) => err);
   console.log("[ Update Status Data Round Complete ]");
-  arrData = []; //Reset State 
+  arrData = []; //Reset State
   getStatusHandler();
 };
 
@@ -285,4 +285,3 @@ async function readStatus(res) {
     });
   });
 }
- 

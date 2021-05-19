@@ -17,9 +17,9 @@
   bottom: center;
   left: center;
   right: center;
-  /* display: flex; */
-  /* justify-content: center;
-  align-items: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content-showmatch-popup-use {
@@ -31,4 +31,9 @@
   height: 720px;
   padding: 5px;
   border-radius: 5px;
+}
+
+.div-btn-close {
+  background-color: rgb(247, 8, 8);
+  right: 0;
 }
