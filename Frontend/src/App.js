@@ -6,9 +6,9 @@ import AboutMe from "./component/About/AboutMe";
 import Navbar from "./component/Navbar/Navbar";
 import History from "./component/History/History";
 import Dashboard from "./component/History/LoginPage/Dashboard";
+import FindMax from "./component/Playing/FindMax";
 
 function App() {
-
   return (
     <Router>
       <div>
@@ -23,7 +23,7 @@ function App() {
             <History />
           </Route>
           <Route path="/playing">
-            <Playing />
+            <FindMax />
           </Route>
           <Route path="/">
             <Home />

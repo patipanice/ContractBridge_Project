@@ -6,9 +6,6 @@
 // var arrData = ['H02','S03','H04','S06'];
 // var trump = 'N';
 
-// var arrData = ['H02','S03','H04','S06'];
-// var trump = 'N';
-
 const resultRound = (arrData, trump) => {
   //arrData = [H02,A02,S04,S01]  trump=[H,C,S,A,NT]
   console.log(
@@ -21,10 +18,10 @@ const resultRound = (arrData, trump) => {
     trump = arrData[0].charAt(0); //Define
     console.log(`trump : ${trump}`);
     let checkarrTrump = arrData.filter((data) => data.charAt(0) === trump); //CHECK HAVE MORE 1 ?
-    //console.log(`checkarrTrump : ${checkarrTrump}`);
+    console.log(`checkarrTrump : ${checkarrTrump}`);
     //CASE 1 --> IF(1)
     if (checkarrTrump.length === 1) {
-      //console.log("checkarrTrump.length == 1");
+      console.log("checkarrTrump.length == 1");
       return [checkarrTrump[0], changeDirection(0)];
     } else {
       //CASE 1 --> IF(>1)
@@ -34,16 +31,15 @@ const resultRound = (arrData, trump) => {
     }
   } else {
     //CASE 2
-    let trump = arrData[0].charAt(0);
     let checkarrTrump = arrData.filter((data) => data.charAt(0) === trump);
     console.log(`checkarrTrump : ${checkarrTrump}`);
     if (checkarrTrump.length === 1) {
       console.log("checkarrTrump.length == 1");
-      let winDirection = 0;
-      return [checkarrTrump[0], changeDirection(winDirection)];
+      return [checkarrTrump[0], changeDirection(0)];
     } else {
       //CASE 2 --> IF(>1)
       let [winRound, winDirection] = findMax(checkarrTrump, trump, arrData);
+      console.log(winRound, winDirection);
       return [winRound, winDirection];
     }
   }

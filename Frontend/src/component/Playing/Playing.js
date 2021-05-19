@@ -4,7 +4,9 @@ import Fieldcard from "./Fieldcards";
 import SelectRound from "./SelectRound";
 import HandCards from "./HandCards";
 
-export default function Playing() {
+export default function Playing(props) {
+  const { maxID } = props;
+  console.log("Heloo" + maxID);
   const [cardsData, setCardsData] = useState([]);
   const [status, setStatus] = useState({
     _id: 1,
@@ -20,13 +22,15 @@ export default function Playing() {
     getAllCard().then((res) => {
       if (res.status == "200") {
         console.log("[ Get card server : 200 OK ! ]");
-        setCardsData(res.data[match]); //when match change useEffect() will run again and again
+
+        setCardsData(res.data[maxID - 1]); //when match change useEffect() will run again and again
       }
     });
     getStatus().then((res) => {
       if (res.status == "200") {
         console.log("[ Get status server : 200 OK ! ]");
-        setStatus(res.data[match]); //when match change useEffect() will run again and again
+
+        setStatus(res.data[maxID - 1]); //when match change useEffect() will run again and again
       }
     });
   }, [match]);
@@ -65,8 +69,6 @@ export default function Playing() {
           statusRound={status.game_round}
           round={cardsData.record_card}
         />
-
-        {/* <SelectMatch onChangeMatch={onChangeMatch} /> */}
 
         <Fieldcard status={status} cardsData={cardsData} round={round} />
       </div>

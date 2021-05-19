@@ -235,7 +235,7 @@ app.get("/status", (req, res) => {
 });
 
 //Deleted Match API
-app.delete("/delete/match/:match", (req, res) => {
+app.get("/delete/match/:match", (req, res) => {
   let match = req.params.match;
   deleteMatch(parseInt(match), res);
 });

@@ -33,16 +33,14 @@ export default function Rowmatch(props) {
           onClickTR(status);
         }}
       >
-        <td>{status._id}</td>
+        <td>Match No. {status._id}</td>
         <td>
           <UpDate inputDate={status.start_date_time} />
         </td>
         <td>
           <StartTime inputStartTime={status.start_date_time} />
         </td>
-        <td>
-          <EndTime inputEndTime={status.end_date_time} />
-        </td>
+        {/* <td><EndTime inputEndTime={status.end_date_time} /></td> */}
         <td>
           <Status gameRound={status.game_round} />
         </td>

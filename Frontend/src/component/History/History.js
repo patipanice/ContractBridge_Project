@@ -23,7 +23,7 @@ export default function History() {
             <th>Game Match</th>
             <th>Date</th>
             <th>Time Start</th>
-            <th>Time End</th>
+            {/* <th>Time End</th> */}
             <th>Status</th>
           </tr>
         </thead>
