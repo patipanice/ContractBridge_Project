@@ -38,21 +38,21 @@ var gameStatus = {
   },
 };
 
-createCard(cardJson[0]).then((err) => {
-  if (err) {
-    getStatusHandler();
-  } else {
-    console.log("Create Successfull");
-  }
-});
+// createCard(cardJson[0]).then((err) => {
+//   if (err) {
+//     getStatusHandler();
+//   } else {
+//     console.log("Create Successfull");
+//   }
+// });
 
-createStatus(gameStatus).then((err) => {
-  if (err) {
-    getStatusHandler();
-  } else {
-    console.log("Create Successfull");
-  }
-}); 
+// createStatus(gameStatus).then((err) => {
+//   if (err) {
+//     getStatusHandler();
+//   } else {
+//     console.log("Create Successfull");
+//   }
+// }); 
 
 //Get last status form last game_match form Mongo
 const getStatusHandler =  async () => {
@@ -126,7 +126,7 @@ app.get("/write/:data", (req, res) => {
     console.log("You must to Auction before go to playing state.");
     return res.send(
       `You placing [${data}] ,You must to auction before go to playing state !!`
-    );
+    ); 
   } else {
     arrData.push(data);
     res.send(`Round placing state : ${arrData}`);
@@ -134,14 +134,11 @@ app.get("/write/:data", (req, res) => {
     //When receive 4 card it going into resulting round
     if (arrData.length === 4) {
       console.log(`[Card_Data] :  ${arrData}`); //Show arrData[4]
-      arrData = editarrData(arrData, gameStatus.first_direction); //Edit arrData[4] depend on first_direction
-      var [winRound, first_direciton] = resultRound(
-        arrData,
-        gameStatus.trump.charAt(0)
-      );
+      arrData = editarrData(arrData, gameStatus.first_direction,gameStatus.game_round); //Edit arrData[4] depend on first_direction
+      var [ winRound , first_direciton] = resultRound(arrData, gameStatus.trump.charAt(0));
       console.log(
         `[Win_Round] : ${winRound}  [Win_Direction] :  ${first_direciton}`
-      );
+      ); 
 
       //INSERT CARD TO MONGODB COLLECTION
       let myquery = { _id: gameStatus.game_match };

@@ -4,15 +4,13 @@
 // -->  FIND MAX(...NEWARRDATA(INT)) ---> FIND IN NEW ARRDATA AND GET WINROUND AND INDEX
 
 
-var arrData = ['H02','S03','H04','S06'];
-var trump = 'N';
-
+// var arrData = ['H02','S03','H04','S06'];
+// var trump = 'N';
+ 
 const resultRound = (arrData, trump) => { //arrData = [H02,A02,S04,S01]  trump=[H,C,S,A,NT]
   console.log(".................... Resulting round state ....................");
  
-
-  let checkArr = arrData.find(arr=> arr.charAt(0) === trump);
-  
+  let checkArr = arrData.find(arr=> arr.charAt(0) === trump); 
   //CASE 1 
   if(trump === 'N' || checkArr === undefined){
     trump = arrData[0].charAt(0); //Define
@@ -22,8 +20,7 @@ const resultRound = (arrData, trump) => { //arrData = [H02,A02,S04,S01]  trump=[
     //CASE 1 --> IF(1)
     if(checkarrTrump.length === 1) {
       //console.log("checkarrTrump.length == 1");
-      let winDirection = 0
-      return [checkarrTrump[0], winDirection];
+      return [checkarrTrump[0],changeDirection(0)];
     }else{ //CASE 1 --> IF(>1)
       let [winRound,winDirection] = findMax(checkarrTrump,trump,arrData);
       console.log(winRound,winDirection)
@@ -58,8 +55,8 @@ const findMax = (newarrData, trump, arrData) => {
   //console.log(`winDirection : ${winDirection}`);
   return [winRound,winDirection]
 }
-
-
+  
+ 
 const findDirection = (winRound ,arrData) => {
   return arrData.indexOf(winRound);
 }
@@ -80,7 +77,7 @@ const changeDirection = (num) => {
 };
 
 
-resultRound(arrData,trump);
+// resultRound(arrData,trump);
 
 
 module.exports = { resultRound };
