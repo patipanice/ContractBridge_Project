@@ -1,35 +1,60 @@
+.position-field {
+  max-width: 960px;
+  width: 800px;
+  height: 600px;
+  display: flex;
+  margin: 0;
+  border: 1px solid red;
+  padding: 1rem;
+  position: relative;
+}
+.position-trump {
+  width: 120px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .GameState {
-  font-size: 20px;
+  font-size: 10px;
   color: red;
   margin-left: 15px;
   margin-top: 15px;
 }
-.content-fieldcards {
-  display: block;
-}
+
 .card {
   width: 90px;
   position: absolute;
 }
 
 .south-card {
+  position: absolute;
   top: 65%;
-  left: 59%;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }
 
 .east-card {
-  top: 40%;
-  left: 80%;
+  top: 50%;
+  left: 75%;
+  position: absolute;
+  transform: translate(-50%, -50%);
 }
 
 .north-card {
+  position: absolute;
   top: 10%;
-  left: 59%;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }
 
 .west-card {
-  top: 40%;
-  left: 42%;
+  top: 50%;
+  left: 25%;
+  position: absolute;
+  transform: translate(-50%, -50%);
 }
 
 .winround-card {
@@ -49,20 +74,7 @@ label {
   margin-left: 10px;
 }
 
-.btn-trump {
-  width: 80px;
-  height: 60px;
-  font-size: 18px;
-  position: absolute;
-  top: 50%;
-  left: 60%;
-  margin-top: -35px;
-  margin-left: -52px;
-  border-radius: 5px;
-  border-color: rgb(255, 255, 255);
-}
-
-.trump_state {
+.trump_state-HistoryField {
   position: absolute;
   top: 50%;
   left: 60%;
@@ -75,28 +87,33 @@ label {
   color: rgb(255, 8, 8);
 }
 
-.direction {
+.direction-HistoryField {
   position: absolute;
   color: rgb(7, 0, 0);
 }
 .south-direction {
   top: 60%;
-  left: 60%;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }
 
 .east-direction {
   top: 35%;
-  left: 82%;
+  left: 75%;
+  transform: translate(-50%, 0%);
 }
 
 .north-direction {
+  position: absolute;
   top: 6%;
-  left: 60%;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }
 
 .west-direction {
   top: 35%;
-  left: 42%;
+  left: 20%;
+  transform: translate(50%, 0%);
 }
 
 .win-direction {
@@ -106,5 +123,6 @@ label {
 }
 
 .trump-img {
-  max-width: 3%;
+  max-width: 20%;
+  max-height: 20%;
 }

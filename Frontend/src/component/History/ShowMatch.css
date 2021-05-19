@@ -1,6 +1,7 @@
 .content-showmatch {
   text-align: center;
   position: fixed;
+  height: auto;
   top: 0;
   bottom: 0;
   left: 0;
@@ -25,15 +26,26 @@
 .content-showmatch-popup-use {
   position: relative;
   max-width: 1440px;
-  max-width: 720px;
+  max-height: 720px;
   background-color: white;
-  width: 1000px;
-  height: 720px;
+  width: 1280px;
+  height: 680px;
   padding: 5px;
   border-radius: 5px;
 }
 
 .div-btn-close {
-  background-color: rgb(247, 8, 8);
   right: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.Select-Round {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.Field {
+  display: flex;
+  justify-content: flex-start;
 }

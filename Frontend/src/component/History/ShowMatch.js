@@ -72,17 +72,19 @@ export default function ShowMatch(prop) {
                 onClick={onClickClose}
               ></button>
             </div>
-            <SelectRound
-              onChangeRound={onChangeRound}
-              statusRound={status.game_round}
-              round={cardsData.record_card}
-            />
+            <div className="Select-Round">
+              <SelectRound
+                onChangeRound={onChangeRound}
+                statusRound={status.game_round}
+                round={cardsData.record_card}
+              />
 
-            <HistoryField
-              status={showMatch}
-              cardsData={cardsData}
-              round={round}
-            />
+              <HistoryField
+                status={showMatch}
+                cardsData={cardsData}
+                round={round}
+              />
+            </div>
           </div>
         </div>
       </div>

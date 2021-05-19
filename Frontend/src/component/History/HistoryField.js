@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./HistoryField";
+import "./HistoryField.css";
 import ShowHandCard from "../Playing/ShowHandCards";
 
 const cardJson = require("../../cards.json");
@@ -48,89 +48,91 @@ export default function Fieldcard(props) {
           <option value="1">West</option>
         </select>
       </form>
-      <p className="direction south-direction">South</p>
-      <p className="direction west-direction">West</p>
-      <p className="direction north-direction">North</p>
-      <p className="direction east-direction">East</p>
-      <p className="direction win-direction">
-        {/* {cardsData["record_card"][round][4]} */}
-      </p>
-      {
-        <img
-          src={
-            cardJson[
-              cardsData["record_card"]
-                ? cardsData["record_card"][round][0]
-                : "Back"
-            ]
-          }
-          className="card south-card"
-          alt="south-card"
-        />
-      }
-      {
-        <img
-          src={
-            cardJson[
-              cardsData["record_card"]
-                ? cardsData["record_card"][round][1]
-                : "Back"
-            ]
-          }
-          className="card west-card"
-          alt="west-card"
-        />
-      }
-      {
-        <img
-          src={
-            cardJson[
-              cardsData["record_card"]
-                ? cardsData["record_card"][round][2]
-                : "Back"
-            ]
-          }
-          className="card north-card"
-          alt="north-card"
-        />
-      }
-      {
-        <img
-          src={
-            cardJson[
-              cardsData["record_card"]
-                ? cardsData["record_card"][round][3]
-                : "Back"
-            ]
-          }
-          className="card east-card"
-          alt="east-card"
-        />
-      }
-      {
-        <img
-          src={
-            cardJson[
-              cardsData["record_card"]
-                ? cardsData["record_card"][round][4].substr(0, 3)
-                : ""
-            ]
-          }
-          className="winround-card"
-        />
-      }
-      {status["trump"] === "None" ? (
-        ""
-      ) : (
-        <h1 className="trump_state">
+      <div className="position-field">
+        <p className="direction-HistoryField south-direction">South</p>
+        <p className="direction-HistoryField west-direction">West</p>
+        <p className="direction-HistoryField north-direction">North</p>
+        <p className="direction-HistoryField east-direction">East</p>
+        <p className="direction-HistoryField win-direction">Win</p>
+        {
           <img
-            src={cardJson[status["trump"].charAt(0)]}
-            alt="trump"
-            className="trump-img"
+            src={
+              cardJson[
+                cardsData["record_card"]
+                  ? cardsData["record_card"][round][0]
+                  : "Back"
+              ]
+            }
+            className="card south-card"
+            alt="south-card"
           />
-          / {status["trump"].charAt(1)}
-        </h1>
-      )}
+        }
+        {
+          <img
+            src={
+              cardJson[
+                cardsData["record_card"]
+                  ? cardsData["record_card"][round][1]
+                  : "Back"
+              ]
+            }
+            className="card west-card"
+            alt="west-card"
+          />
+        }
+        {
+          <img
+            src={
+              cardJson[
+                cardsData["record_card"]
+                  ? cardsData["record_card"][round][2]
+                  : "Back"
+              ]
+            }
+            className="card north-card"
+            alt="north-card"
+          />
+        }
+        {
+          <img
+            src={
+              cardJson[
+                cardsData["record_card"]
+                  ? cardsData["record_card"][round][3]
+                  : "Back"
+              ]
+            }
+            className="card east-card"
+            alt="east-card"
+          />
+        }
+        {/* {
+          <img
+            src={
+              cardJson[
+                cardsData["record_card"]
+                  ? cardsData["record_card"][round][4].substr(0, 3)
+                  : ""
+              ]
+            }
+            className="winround-card"
+          />
+        } */}
+        <div className="position-trump">
+          {status["trump"] === "None" ? (
+            ""
+          ) : (
+            <h2 className="trump_state-HistoryField">
+              <img
+                src={cardJson[status["trump"].charAt(0)]}
+                alt="trump"
+                className="trump-img"
+              />
+              / {status["trump"].charAt(1)}
+            </h2>
+          )}
+        </div>
+      </div>
     </>
   );
 }

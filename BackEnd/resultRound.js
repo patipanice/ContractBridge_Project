@@ -81,6 +81,6 @@ const changeDirection = (num) => {
   }
 };
 
-resultRound(arrData, trump);
+//resultRound(arrData, trump);
 
 module.exports = { resultRound };
