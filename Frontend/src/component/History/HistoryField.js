@@ -120,7 +120,7 @@ export default function Fieldcard(props) {
         />
       }
       {status["trump"] === "None" ? (
-        "GG EZ"
+        ""
       ) : (
         <h1 className="trump_state">
           <img

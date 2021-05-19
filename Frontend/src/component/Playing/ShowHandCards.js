@@ -9,9 +9,9 @@ export default function ShowHandCards(prop) {
   return (
     <div>
       {" "}
-      <div className="content-trump" onClick={onCloseCard}>
-        <div className="content-trump-popup-bg">
-          <div className="content-trump-popup-use">
+      <div className="content-hand" onClick={onCloseCard}>
+        <div className="content-hand-popup-bg">
+          <div className="content-hand-popup-use">
             {inputCardHand
               ? inputCardHand.map((val, index) => {
                   if (val[0] == "Back" || count == "None") {

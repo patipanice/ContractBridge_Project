@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import WinAuctionTrump from "./trump/WinAuctionTrump";
 import "./Fieldcards.css";
 import ShowHandCard from "./ShowHandCards";
+import axios from "axios";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
+
 const cardJson = require("../../cards.json");
 
 export default function Fieldcard(props) {
@@ -10,6 +14,7 @@ export default function Fieldcard(props) {
   const [popupTrump, setPopupTrump] = useState(false);
   const [countCard, setCountCard] = useState(null);
   const [showCard, setShowCard] = useState(false);
+  const [reSetCard, setResetCard] = useState();
   let trumpPopUp;
 
   const popUpTrumpOpenHandler = () => setPopupTrump(true);
@@ -39,6 +44,35 @@ export default function Fieldcard(props) {
     );
   }
 
+  function onReset() {
+    console.log("Hello " + status._id);
+    axios.get(`http://localhost:5000/delete/match/${status._id}`);
+  }
+
+  const submit = () => {
+    confirmAlert({
+      title: "Reset Game",
+      message: "Are you sure to do this.",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => {
+            onReset();
+            alert("Click Yes");
+          },
+        },
+        {
+          label: "No",
+          onClick: () => alert("Click No"),
+        },
+      ],
+    });
+  };
+
+  const Hello = () => {
+    console.log("Hello World");
+  };
+
   return (
     <div>
       {showHand}
@@ -58,7 +92,14 @@ export default function Fieldcard(props) {
         </select>
       </form>
       <p>
-        Return to Start<button>Reset</button>{" "}
+        Return to Start{" "}
+        <button
+          onClick={() => {
+            status["trump"] == "None" ? Hello() : submit();
+          }}
+        >
+          Reset
+        </button>
       </p>
       <p className="direction south-direction">
         South : {status["win_point"] ? status["win_point"]["South"] : 0}
@@ -151,7 +192,10 @@ export default function Fieldcard(props) {
             alt="trump"
             className="trump-img"
           />
-          / {status["trump"].charAt(1)}
+          /{" "}
+          {status["trump"].charAt(1) == "T"
+            ? status["trump"].charAt(2)
+            : status["trump"].charAt(1)}
         </h1>
       )}
     </div>

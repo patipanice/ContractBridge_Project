@@ -5,13 +5,15 @@ import "./LoginAdmin.css";
 import PropTypes from "prop-types";
 
 async function loginUser(credentials) {
-  return axios.post('http://localhost:5000/login',{
-    username: credentials.username,
-    password: credentials.password
-  }).then((res)=>res.data.token);
+  return axios
+    .post("http://localhost:5000/login", {
+      username: credentials.username,
+      password: credentials.password,
+    })
+    .then((res) => res.data.token);
 }
 
-export default function Login({ setToken}) {
+export default function Login({ setToken }) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
 
@@ -21,8 +23,8 @@ export default function Login({ setToken}) {
       username,
       password,
     });
-  console.log(`token : ${token}`);
-   setToken(token);
+    console.log(`token : ${token}`);
+    setToken(token);
   };
 
   return (
@@ -31,13 +33,18 @@ export default function Login({ setToken}) {
       <form onSubmit={handleSubmit}>
         <label>
           <p>Username</p>
-          <input type="text" onChange={(e) => setUserName(e.target.value)} />
+          <input
+            type="text"
+            onChange={(e) => setUserName(e.target.value)}
+            required
+          />
         </label>
         <label>
           <p>Password</p>
           <input
             type="password"
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </label>
         <div>

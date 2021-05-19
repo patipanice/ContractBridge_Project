@@ -1,4 +1,5 @@
 const editArrData = (arrData, first_direction) => {
+  console.log(arrData, first_direction);
   let newarrData = [];
   if (first_direction == "South") {
     //console.log("first_direction : South"); 
