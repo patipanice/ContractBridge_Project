@@ -4,22 +4,22 @@
 // -->  FIND MAX(...NEWARRDATA(INT)) ---> FIND IN NEW ARRDATA AND GET WINROUND AND INDEX
 
 
-// var arrData = ['H02','S03','H04','S06'];
-// var trump = 'N';
+var arrData = ['H13','H14','H02','H03'];
+var trump = 'H';
  
 const resultRound = (arrData, trump) => { //arrData = [H02,A02,S04,S01]  trump=[H,C,S,A,NT]
   console.log(".................... Resulting round state ....................");
- 
+
   let checkArr = arrData.find(arr=> arr.charAt(0) === trump); 
   //CASE 1 
   if(trump === 'N' || checkArr === undefined){
     trump = arrData[0].charAt(0); //Define
     console.log(`trump : ${trump}`)
     let checkarrTrump = arrData.filter(data => data.charAt(0) === trump); //CHECK HAVE MORE 1 ? 
-    //console.log(`checkarrTrump : ${checkarrTrump}`);
+    console.log(`checkarrTrump : ${checkarrTrump}`);
     //CASE 1 --> IF(1)
     if(checkarrTrump.length === 1) {
-      //console.log("checkarrTrump.length == 1");
+      console.log("checkarrTrump.length == 1");
       return [checkarrTrump[0],changeDirection(0)];
     }else{ //CASE 1 --> IF(>1)
       let [winRound,winDirection] = findMax(checkarrTrump,trump,arrData);
@@ -29,13 +29,13 @@ const resultRound = (arrData, trump) => { //arrData = [H02,A02,S04,S01]  trump=[
   }else {
     //CASE 2
     let checkarrTrump = arrData.filter(data => data.charAt(0) === trump);
-    //console.log(`checkarrTrump : ${checkarrTrump}`);
+    console.log(`checkarrTrump : ${checkarrTrump}`);
     if(checkarrTrump.length === 1) {
-      //console.log("checkarrTrump.length == 1");
-      let winDirection = 0
-      return [checkarrTrump[0], winDirection];
+      console.log("checkarrTrump.length == 1");
+      return [checkarrTrump[0], changeDirection(0)];
     }else{ //CASE 2 --> IF(>1)
       let [winRound,winDirection] = findMax(checkarrTrump,trump,arrData);
+      console.log(winRound,winDirection)
       return [winRound, winDirection];
     }
   }
@@ -77,7 +77,7 @@ const changeDirection = (num) => {
 };
 
 
-// resultRound(arrData,trump);
+ resultRound(arrData,trump);
 
 
 module.exports = { resultRound };

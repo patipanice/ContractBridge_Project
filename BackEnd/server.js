@@ -138,7 +138,7 @@ app.get("/write/:data", (req, res) => {
       var [ winRound , first_direciton] = resultRound(arrData, gameStatus.trump.charAt(0));
       console.log(
         `[Win_Round] : ${winRound}  [Win_Direction] :  ${first_direciton}`
-      ); 
+      );  
 
       //INSERT CARD TO MONGODB COLLECTION
       let myquery = { _id: gameStatus.game_match };
