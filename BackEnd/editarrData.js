@@ -1,5 +1,8 @@
-const editArrData = (arrData, first_direction) => {
-  console.log(arrData, first_direction);
+const editArrData = (arrData, first_direction, round) => {
+  // console.log(arrData, first_direction);
+  if (round == 1) {
+    return arrData 
+  }
   let newarrData = [];
   if (first_direction == "South") {
     //console.log("first_direction : South"); 
@@ -27,7 +30,7 @@ const editArrData = (arrData, first_direction) => {
     newarrData[3] = arrData[0];
   }
   console.log(`[Edit_Data] :  ${newarrData}`);
-  return newarrData; 
+  return newarrData;
 };
 
 module.exports = editArrData;
