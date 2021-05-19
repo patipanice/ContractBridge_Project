@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./ShowMatch.css";
 import HistoryField from "./HistoryField";
-import SelectRound from "../Playing/SelectRound";
+import SelectRound from "./SelectRound";
+import "./SelectRound.css";
 import SelectMatch from "../Playing/SelectMatch";
 import axios from "axios";
 
@@ -37,12 +38,8 @@ export default function ShowMatch(prop) {
     },
   ]);
   const [round, setRound] = useState(0);
-  const [match, setMatch] = useState(0);
   function onChangeRound(round) {
     setRound(round);
-  }
-  function onChangeMatch(round) {
-    setMatch(round);
   }
 
   useEffect(() => {
@@ -52,7 +49,7 @@ export default function ShowMatch(prop) {
         setCardsData(res.data[showMatch._id - 1]); //when match change useEffect() will run again and again
       }
     });
-  }, [match]);
+  }, []);
 
   const getAllCard = async () => {
     const rawCard = await axios.get("http://localhost:5000/card/");
@@ -62,29 +59,25 @@ export default function ShowMatch(prop) {
   return (
     <div>
       <div className="content-showmatch">
+        <button
+          type="button"
+          class="btn-close BTN-Close"
+          aria-label="Close"
+          onClick={onClickClose}
+        />
         <div className="content-showmatch-popup-bg">
           <div className="content-showmatch-popup-use">
-            <div className="div-btn-close">
-              <button
-                type="button"
-                class="btn-close closer"
-                aria-label="Close"
-                onClick={onClickClose}
-              ></button>
-            </div>
-            <div className="Select-Round">
-              <SelectRound
-                onChangeRound={onChangeRound}
-                statusRound={status.game_round}
-                round={cardsData.record_card}
-              />
+            <SelectRound
+              onChangeRound={onChangeRound}
+              statusRound={status.game_round}
+              round={cardsData.record_card}
+            />
 
-              <HistoryField
-                status={showMatch}
-                cardsData={cardsData}
-                round={round}
-              />
-            </div>
+            <HistoryField
+              status={showMatch}
+              cardsData={cardsData}
+              round={round}
+            />
           </div>
         </div>
       </div>

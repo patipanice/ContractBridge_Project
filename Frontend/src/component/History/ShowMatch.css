@@ -10,42 +10,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.767);
-}
-.content-showmatch-popup-bg {
-  position: absolute;
-  top: center;
-  bottom: center;
-  left: center;
-  right: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgba(0, 0, 0, 0.884);
 }
 
 .content-showmatch-popup-use {
   position: relative;
-  max-width: 1440px;
-  max-height: 720px;
   background-color: white;
-  width: 1280px;
-  height: 680px;
-  padding: 5px;
+  width: 960px;
+  height: 650px;
+  padding: 2%;
   border-radius: 5px;
 }
 
-.div-btn-close {
-  right: 0;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-}
-.Select-Round {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.Field {
-  display: flex;
-  justify-content: flex-start;
+.BTN-Close {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  background-color: rgb(255, 255, 255);
+  width: 3%;
+  height: 4%;
+  padding: 5px;
 }

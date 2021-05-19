@@ -23,38 +23,33 @@
   margin-left: 15px;
   margin-top: 15px;
 }
+.content-fieldcards {
+  display: block;
+}
 
-.card {
-  width: 90px;
+.Cards {
+  width: 8%;
   position: absolute;
 }
 
-.south-card {
-  position: absolute;
-  top: 65%;
+.SouthCard {
+  top: 70%;
+  left: 65%;
+}
+
+.EastCard {
+  top: 48%;
+  left: 81%;
+}
+
+.NorthCard {
+  top: 28%;
+  left: 65%;
+}
+
+.WestCard {
+  top: 48%;
   left: 50%;
-  transform: translate(-50%, 0%);
-}
-
-.east-card {
-  top: 50%;
-  left: 75%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
-
-.north-card {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, 0%);
-}
-
-.west-card {
-  top: 50%;
-  left: 25%;
-  position: absolute;
-  transform: translate(-50%, -50%);
 }
 
 .winround-card {
@@ -74,55 +69,78 @@ label {
   margin-left: 10px;
 }
 
-.trump_state-HistoryField {
+.btn-trump {
+  width: 80px;
+  height: 60px;
+  font-size: 18px;
   position: absolute;
   top: 50%;
   left: 60%;
   margin-top: -35px;
-  margin-left: -50px;
-  font-size: 40px;
+  margin-left: -52px;
+  border-radius: 5px;
+  border-color: rgb(255, 255, 255);
 }
+
 .win-round {
   position: absolute;
   color: rgb(255, 8, 8);
 }
 
-.direction-HistoryField {
+.Directions {
   position: absolute;
   color: rgb(7, 0, 0);
 }
-.south-direction {
+
+.SD {
+  top: 67%;
+  left: 66.5%;
+}
+
+.ED {
+  top: 45%;
+  left: 83.52%;
+}
+
+.ND {
+  top: 24%;
+  left: 66.5%;
+}
+
+.WD {
+  top: 45%;
+  left: 52%;
+}
+
+.WIND {
+  top: 76%;
+  left: 85%;
+}
+
+.TrumpImg {
+  max-width: 4%;
+}
+
+.TrumpState {
+  position: absolute;
   top: 60%;
-  left: 50%;
-  transform: translate(-50%, 0%);
+  left: 44%;
+  margin-top: -35px;
+  margin-left: -50px;
+  font-size: 30px;
 }
-
-.east-direction {
-  top: 35%;
-  left: 75%;
-  transform: translate(-50%, 0%);
+.HandLabel {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 24px;
 }
-
-.north-direction {
-  position: absolute;
-  top: 6%;
-  left: 50%;
-  transform: translate(-50%, 0%);
-}
-
-.west-direction {
-  top: 35%;
-  left: 20%;
-  transform: translate(50%, 0%);
-}
-
-.win-direction {
-  position: absolute;
-  top: 420px;
-  left: 1230px;
-}
-
-.trump-img {
-  max-width: 20%;
-  max-height: 20%;
+.OptionHand {
+  margin-top: 20px;
+  margin-left: 30px;
+  width: 10%;
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: rgba(199, 199, 199, 0.918);
 }

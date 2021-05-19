@@ -29,7 +29,6 @@ export default function Dashboard() {
       >
         x
       </button>
-      <h2>Admin</h2>
       <table className="styled-table">
         <thead>
           <tr>
