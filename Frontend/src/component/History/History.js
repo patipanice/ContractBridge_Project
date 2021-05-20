@@ -23,7 +23,11 @@ export default function History() {
             <th>Game Match</th>
             <th>Date</th>
             <th>Time Start</th>
-            {/* <th>Time End</th> */}
+            <th>Score</th>
+            <th>North</th>
+            <th>East</th>
+            <th>South</th>
+            <th>West</th>
             <th>Status</th>
           </tr>
         </thead>

@@ -24,7 +24,7 @@ export default function Rowmatch(props) {
       <ShowMatch showMatch={showMatch} onClickClose={onClickClose} />
     );
   }
-
+  console.log(status.win_point);
   return (
     <>
       {showNewmatch}
@@ -40,7 +40,11 @@ export default function Rowmatch(props) {
         <td>
           <StartTime inputStartTime={status.start_date_time} />
         </td>
-        {/* <td><EndTime inputEndTime={status.end_date_time} /></td> */}
+        <td> :</td>
+        <td>{status.win_point.North}</td>
+        <td>{status.win_point.East}</td>
+        <td>{status.win_point.South}</td>
+        <td>{status.win_point.West}</td>
         <td>
           <Status gameRound={status.game_round} />
         </td>

@@ -49,10 +49,22 @@ export default function Fieldcard(props) {
           <option value="1">West</option>
         </select>
       </form>
-      <p className="Directions SD">South</p>
-      <p className="Directions WD">West</p>
-      <p className="Directions ND">North</p>
-      <p className="Directions ED">East</p>
+      <p className="Directions SD">
+        {" "}
+        South : {status["win_point"] ? status["win_point"]["South"] : 0}
+      </p>
+      <p className="Directions WD">
+        {" "}
+        West : {status["win_point"] ? status["win_point"]["West"] : 0}{" "}
+      </p>
+      <p className="Directions ND">
+        {" "}
+        North : {status["win_point"] ? status["win_point"]["North"] : 0}
+      </p>
+      <p className="Directions ED">
+        {" "}
+        East : {status["win_point"] ? status["win_point"]["East"] : 0}
+      </p>
       {
         <img
           src={
@@ -118,72 +130,18 @@ export default function Fieldcard(props) {
         />
       }
 
-      {/* {status["trump"] === "None" ? ("") :  <h1 className="TrumpState"><img src={cardJson[status["trump"].charAt(0)]} alt="trump" className="TrumpImg"/>} */}
-      {
-        <img
-          src={
-            cardJson[
-              cardsData["record_card"]
-                ? cardsData["record_card"][round][1]
-                : "Back"
-            ]
-          }
-          className="card west-card"
-          alt="west-card"
-        />
-      }
-      {
-        <img
-          src={
-            cardJson[
-              cardsData["record_card"]
-                ? cardsData["record_card"][round][2]
-                : "Back"
-            ]
-          }
-          className="card north-card"
-          alt="north-card"
-        />
-      }
-      {
-        <img
-          src={
-            cardJson[
-              cardsData["record_card"]
-                ? cardsData["record_card"][round][3]
-                : "Back"
-            ]
-          }
-          className="card east-card"
-          alt="east-card"
-        />
-      }
-      {/* {
+      {status["trump"] === "None" ? (
+        ""
+      ) : (
+        <h1 className="TrumpState">
           <img
-            src={
-              cardJson[
-                cardsData["record_card"]
-                  ? cardsData["record_card"][round][4].substr(0, 3)
-                  : ""
-              ]
-            }
-            className="winround-card"
+            src={cardJson[status["trump"].charAt(0)]}
+            alt="trump"
+            className="TrumpImg"
           />
-        } */}
-      <div className="position-trump">
-        {status["trump"] === "None" ? (
-          ""
-        ) : (
-          <h2 className="trump_state-HistoryField">
-            <img
-              src={cardJson[status["trump"].charAt(0)]}
-              alt="trump"
-              className="trump-img"
-            />
-            / {status["trump"].charAt(1)}
-          </h2>
-        )}
-      </div>
+          / {status["trump"].charAt(1)}
+        </h1>
+      )}
     </>
   );
 }

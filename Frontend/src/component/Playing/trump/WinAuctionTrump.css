@@ -42,6 +42,7 @@
 
 .first_play {
   margin-top: 15px;
+  display: inline;
 }
 
 .first_play label {
