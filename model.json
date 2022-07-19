@@ -1,0 +1,13 @@
+{
+  "title": "model",
+  "x-stoplight": {
+    "id": "ez48gi1hj2vjj"
+  },
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    }
+  },
+  "examples": []
+}

@@ -1,0 +1,27 @@
+title: covidCase
+x-stoplight:
+  id: kkf3xw2qidpp4
+type: object
+properties:
+  id:
+    type: string
+  confirmed:
+    type: number
+  recorverd:
+    type: number
+  deaths:
+    type: number
+  lastUpdate:
+    type: string
+  countryCode:
+    type: string
+  countryRegion:
+    type: string
+examples:
+  - id: string
+    confirmed: 0
+    recorverd: 0
+    deaths: 0
+    lastUpdate: string
+    countryCode: string
+    countryRegion: string
